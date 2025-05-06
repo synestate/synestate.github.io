@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synestate</title>
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background-color: red;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .logo-container {
+            margin: 30px 0;
+            max-width: 300px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        .logo-container img {
+            max-width: 100%;
+            height: auto;
+            filter: brightness(0); /* Makes the logo black */
+            opacity: 0.6; /* Makes the logo semi-transparent */
+            transition: filter 0.3s, opacity 0.3s; /* Smooth transition */
+        }
+        .logo-container img:hover {
+            filter: none; /* Remove the filter on hover to show true colors */
+            opacity: 1.0; /* Full opacity on hover */
+        }
+        .content {
+            margin: 20px 0;
+            text-align: center;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+        .memberships {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 40px 0 20px;
+            max-width: 800px;
+        }
+        .memberships a {
+            display: inline-block;
+        }
+        .memberships img {
+            height: 50px;
+            width: auto;
+            filter: brightness(0) invert(1); /* Makes the logos white */
+            opacity: 0.6; /* Makes the logos semi-transparent */
+            transition: filter 0.3s, opacity 0.3s; /* Smooth transition */
+        }
+        .memberships img:hover {
+            filter: none; /* Remove the filter on hover to show true colors */
+            opacity: 1.0; /* Full opacity on hover */
+        }
+        .contact-button {
+            margin-top: auto;
+            padding: 12px 25px;
+            background-color: white;
+            color: red;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 30px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
+        .contact-button:hover {
+            background-color: black;
+            color: white;
+            transform: scale(1.05);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .social-links a {
+            color: white;
+            opacity: 0.6;
+            font-size: 22px;
+            transition: opacity 0.3s, transform 0.2s;
+        }
+        .social-links a:hover {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        footer {
+            margin-top: auto;
+            padding: 20px 0;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .copyright {
+            margin-top: 20px;
+            font-size: 12px;
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .copyright img {
+            height: 16px;
+            margin-right: 8px;
+            filter: brightness(0) invert(1);
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <!-- The SVG logo -->
+        <img src="logo.svg" alt="Synestate Logo">
+    </div>
+    
+    <div class="content">
+    <p>
+        Synestate is a New York-based consultancy working at the intersection of finance and technology. Our focus on "security & securities" bridges cybersecurity with financial markets, with particular emphasis on analyzing complex dependencies in systems. We believe resilience emerges from robust management of technology assets and supply chains. Our team brings expertise in risk management, distributed computing, operating systems, and applied cryptography, conducting targeted R&D and working with large open source codebases to deliver custom solutions. From electronic trading to digital identity, virtual assets, and market infrastructure, we guide organizations through technical challenges across the entire technology stack.
+    </p>
+    </div>
+    
+    <!-- Team Membership logos section -->
+    <div class="memberships">
+        <a href="https://kernel.org" target="_blank">
+            <img src="images/thelinuxfoundation.png" alt="Linux Foundation - Member">
+        </a>
+        <a href="https://www.lfdecentralizedtrust.org" target="_blank">
+            <img src="images/lfdt-FM-SIG.png" alt="Linux Foundation Decentralized Trust (Financial Markets SIG)- Member">
+        </a>
+        <a href="https://corporatefinanceinstitute.com" target="_blank">
+            <img src="images/CFI-logo.png" alt="CFI - Member">
+        </a>
+        <a href="https://cisi.org" target="_blank">
+            <img src="images/cisilogonew.png" alt="Chartered Institute for Securities and Investment (CISI) - Level 1 Certified Member">
+        </a>
+        <a href="https://pkic.org" target="_blank">
+            <img src="images/pkic-logo-black.svg" alt="PKI Consortium - Member">
+        </a>
+        <a href="https://trustoverip.org" target="_blank">
+            <img src="images/Trust_Over_IP.svg" alt="Trust Over IP Foundation - Member">
+        </a>
+        <a href="https://acm.org" target="_blank">
+            <img src="images/ACM.png" alt="ACM - Member">
+        </a>
+        <a href="https://sigops.org" target="_blank">
+            <img src="images/SIGOPS.png" alt="ACM SIGOPS - Member">
+        </a>
+    </div>
+    
+    <footer>
+        <a href="mailto:root@synestate.com?subject=Hello" class="contact-button">Contact Us</a>
+        
+        <!-- Social media links -->
+        <div class="social-links">
+            <a href="https://twitter.com/synestate" target="_blank" aria-label="X (Twitter)">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://linkedin.com/in/naolduga" target="_blank" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/synestate" target="_blank" aria-label="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
+        
+        <div class="copyright">
+            <img src="logo.svg" alt="Synestate Logo"> © Synestate LLC, 2019-2025
+        </div>
+    </footer>
+</body>
+</html>
