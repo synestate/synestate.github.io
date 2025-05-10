@@ -44,6 +44,25 @@
             line-height: 1.6;
             font-size: 24px;
         }
+        .contact-button {
+            padding: 12px 25px;
+            background-color: white;
+            color: red;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 30px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
+        .contact-button:hover {
+            background-color: black;
+            color: white;
+            transform: scale(1.05);
+        }
         .memberships {
             display: flex;
             flex-wrap: wrap;
@@ -66,26 +85,6 @@
         .memberships img:hover {
             filter: none; /* Remove the filter on hover to show true colors */
             opacity: 1.0; /* Full opacity on hover */
-        }
-        .contact-button {
-            margin-top: auto;
-            padding: 12px 25px;
-            background-color: white;
-            color: red;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-bottom: 30px;
-            text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s, color 0.3s, transform 0.2s;
-        }
-        .contact-button:hover {
-            background-color: black;
-            color: white;
-            transform: scale(1.05);
         }
         .social-links {
             display: flex;
@@ -141,6 +140,8 @@
     </p>
     </div>
     
+    <a href="mailto:root@synestate.com?subject=Hello" class="contact-button">Contact Us</a>
+    
     <!-- Team Membership logos section -->
     <div class="memberships">
         <a href="https://kernel.org" target="_blank">
@@ -170,8 +171,6 @@
     </div>
     
     <footer>
-        <a href="mailto:root@synestate.com?subject=Hello" class="contact-button">Contact Us</a>
-        
         <!-- Social media links -->
         <div class="social-links">
             <a href="https://twitter.com/synestate" target="_blank" aria-label="X (Twitter)">
