@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="129.42 107.983 21.76 21.76" height="400px" width="400px" xmlns:bx="https://boxy-svg.com">
-  <defs>
-    <bx:export>
-      <bx:file format="png" dpi="400" width="400" height="400" path="test.png"/>
-    </bx:export>
-  </defs>
   <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(255, 255, 255); stroke-width: 0.3px;" cx="140.3" cy="118.863" rx="10.161" ry="10.161"/>
   <g transform="matrix(0.778821, 0, 0, 0.778821, 31.670044, 25.601126)" style="">
     <text style="fill: rgb(14, 13, 13); font-family: &quot;Courier New&quot;; font-size: 3px; font-weight: 700; white-space: pre;" x="131.02" y="124.029">SYNESTATE</text>
