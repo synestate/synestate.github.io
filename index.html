@@ -1,189 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Synestate</title>
-    <!-- Font Awesome for social icons -->
+    <title>Synestate | R&D Consultancy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body {
-            background-color: #F7931A;
-            color: white;
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-orange: #F7931A;
+            --dark-bg: #0f0f0f;
+            --glass-bg: rgba(0, 0, 0, 0.4);
+            --text-main: #ffffff;
+            --text-dim: rgba(255, 255, 255, 0.7);
+            --accent-glow: rgba(247, 147, 26, 0.3);
+            --grid-color: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image:
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Cyber/Home-brew scanline effect */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.3;
+        }
+
+        .orange-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80vw;
+            height: 80vh;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            width: 100%;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
-        .logo-container {
-            margin: 30px 0 12px 0;
-            max-width: 300px;
-            width: 100%;
+
+        .logo-section {
+            padding: 20px 0;
+            animation: fadeInDown 1s ease-out;
+            margin-bottom: 20px;
+        }
+
+        .logo-section img {
+            height: 100px;
+            width: auto;
+            filter: drop-shadow(0 0 10px var(--primary-orange));
+            transition: transform 0.3s ease;
+        }
+
+        .hero {
             text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1.2s ease-out;
+            background: var(--glass-bg);
+            backdrop-filter: blur(5px);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--primary-orange);
+            box-shadow: 0 0 20px rgba(247, 147, 26, 0.2);
+            position: relative;
+        }
+
+        /* Home-brew terminal "corners" */
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-orange);
+        }
+
+        .hero::before {
+            top: -2px;
+            left: -2px;
+            border-right: 0;
+            border-bottom: 0;
+        }
+
+        .hero::after {
+            bottom: -2px;
+            right: -2px;
+            border-top: 0;
+            border-left: 0;
+        }
+
+        .blurb {
+            font-size: 1.15rem;
+            font-weight: 300;
+            margin-bottom: 24px;
+            max-width: 700px;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .blurb b {
+            font-weight: 700;
+            color: var(--primary-orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .blurb .highlight {
+            color: #fff;
+            font-weight: 600;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .domains-list {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+            color: var(--primary-orange);
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 0.9rem;
         }
-        .logo-container img {
-            max-width: 100%;
-            height: auto;
-            opacity: 1.0;
+
+        .domains-list span::after {
+            content: ' •';
+            margin-left: 15px;
+            opacity: 0.5;
         }
-        .content {
-            margin: 0 0 5px 0;
-            text-align: center;
-            max-width: 800px;
-            line-height: 1.6;
-            font-size: 12px;
+
+        .domains-list span:last-child::after {
+            content: '';
         }
-        .contact-button {
-            padding: 12px 25px;
-            background-color: white;
-            color: red;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-bottom: 30px;
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 0;
+            font-weight: 600;
             text-decoration: none;
-            display: inline-block;
-            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--primary-orange);
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
         }
-        .contact-button:hover {
-            background-color: black;
-            color: white;
+
+        .btn-primary {
+            background-color: var(--primary-orange);
+            color: var(--dark-bg);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary-orange);
+            box-shadow: 0 0 15px var(--primary-orange);
+        }
+
+        .memberships {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 60px;
+            align-items: center;
+            justify-items: center;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .memberships img {
+            display: block;
+            width: 100%;
+            max-width: 110px;
+            max-height: 28px;
+            filter: brightness(0) invert(1);
+            opacity: 0.35;
+            transition: all 0.4s ease;
+            object-fit: contain;
+        }
+
+        .memberships img:hover {
+            opacity: 0.8;
+            filter: brightness(0) invert(1) drop-shadow(0 0 5px var(--primary-orange));
             transform: scale(1.05);
         }
-        .memberships {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            margin: 55px 0 20px;
-            max-width: 800px;
-        }
-        .memberships a {
-            display: inline-block;
-        }
-        .memberships img {
-            height: 50px;
-            width: auto;
-            filter: brightness(0) invert(1); /* Makes the logos white */
-            opacity: 0.6; /* Makes the logos semi-transparent */
-            transition: filter 0.3s, opacity 0.3s; /* Smooth transition */
-        }
-        .memberships img:hover {
-            filter: none; /* Remove the filter on hover to show true colors */
-            opacity: 1.0; /* Full opacity on hover */
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-        .social-links a {
-            color: white;
-            opacity: 0.6;
-            font-size: 22px;
-            transition: opacity 0.3s, transform 0.2s;
-        }
-        .social-links a:hover {
-            opacity: 1;
-            transform: scale(1.2);
-        }
+
         footer {
             margin-top: auto;
-            padding: 20px 0;
+            padding: 40px 0 20px;
             width: 100%;
-            text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 20px;
+            font-family: 'Space Mono', monospace;
         }
+
+        .social-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .social-links a {
+            color: var(--primary-orange);
+            font-size: 1.5rem;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: scale(1.2);
+            text-shadow: 0 0 10px var(--primary-orange);
+        }
+
         .copyright {
-            margin-top: 20px;
-            font-size: 12px;
-            opacity: 0.7;
+            font-size: 0.75rem;
+            opacity: 0.4;
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
         }
+
         .copyright img {
-            height: 16px;
-            margin-right: 8px;
-            opacity: 1.0;
+            height: 12px;
+            filter: grayscale(1) invert(1);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 30px 15px;
+            }
+
+            .blurb {
+                font-size: 1rem;
+            }
+
+            .memberships {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="logo-container">
-        <!-- The SVG logo -->
-        <img src="logo.svg" alt="Synestate Logo">
+    <div class="orange-glow"></div>
+    <div class="container">
+        <header class="logo-section">
+            <img src="logo.svg" alt="Synestate Logo">
+        </header>
+
+        <main class="hero">
+            <p class="blurb">
+                Synestate is an R&amp;D consultancy operating across <span class="highlight">New York</span> and <span
+                    class="highlight">Addis Ababa</span>.
+            </p>
+            <p class="blurb">
+                We align <abbr title="Agentic AI, Identity, Trust, Crypto/graphy"><b>technology</b></abbr> and <abbr
+                    title="Ventures, Markets"><b>capital</b></abbr>.
+            </p>
+
+            <div class="domains-list">
+                <span>PAYMENTS</span>
+                <span>SECURITIES</span>
+                <span>TRADE FINANCE</span>
+                <span><abbr title="Verifiable Credentials">VC</abbr></span>
+                <span><abbr title="Foreign Exchange">FX</abbr></span>
+            </div>
+
+            <p class="blurb">
+                We partner with organizations, investors, and builders to architect cyber &amp; capital infrastructure.
+            </p>
+
+            <div class="cta-group">
+                <a href="mailto:root@synestate.com?subject=Inquiry" class="btn btn-primary">
+                    <i class="fa-solid fa-envelope"></i> Contact Us
+                </a>
+            </div>
+        </main>
+
+        <section class="memberships">
+            <a href="https://www.linuxfoundation.org/" target="_blank">
+                <img src="images/thelinuxfoundation.png" alt="Linux Foundation">
+            </a>
+            <a href="https://www.lfdecentralizedtrust.org" target="_blank">
+                <img src="images/lfdt-FM-SIG.png" alt="LF Decentralized Trust">
+            </a>
+            <a href="https://identity.foundation" target="_blank">
+                <img src="images/DIF-logo-white-small.png" alt="DIF">
+            </a>
+            <a href="https://cisi.org" target="_blank">
+                <img src="images/cisilogonew.png" alt="CISI">
+            </a>
+            <a href="https://pkic.org" target="_blank">
+                <img src="images/pkic-logo-black.svg" alt="PKI Consortium" width="120" height="40">
+            </a>
+            <a href="https://trustoverip.org" target="_blank">
+                <img src="images/Trust_Over_IP.svg" alt="Trust Over IP" width="120" height="40">
+            </a>
+            <a href="https://acm.org" target="_blank">
+                <img src="images/ACM.png" alt="ACM">
+            </a>
+            <a href="https://sigops.org" target="_blank">
+                <img src="images/SIGOPS.png" alt="ACM SIGOPS">
+            </a>
+        </section>
+
+        <footer>
+            <div class="social-links">
+                <a href="https://bsky.app/profile/synestate.bsky.social" target="_blank" aria-label="Bluesky">
+                    <i class="fa-brands fa-bluesky"></i>
+                </a>
+                <a href="https://twitter.com/synestate" target="_blank" aria-label="X (Twitter)">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+                <a href="https://linkedin.com/in/naolduga" target="_blank" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/synestate" target="_blank" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+
+            <div class="copyright">
+                <img src="logo.svg" alt="Synestate Logo"> © Synestate, 2019-2026
+            </div>
+        </footer>
     </div>
-    
-    <div class="content">
-    <p>
-        Synestate is a New York (and 
-        <a href="https://eth.et" target="_blank">ETH</a>-based) firm specializing in the convergence of finance and technology. We uniquely bridge "<b>security & securities</b>," integrating deep cybersecurity expertise with global banking and financial markets knowledge. Our team leverages applied cryptography and distributed systems to deliver targeted R&D, strategic partnerships, and solutions across key areas: verifiable data, electronic trading, organizational identity, blockchain architecture, smart contracts, virtual assets, digital securities, and broader trust infrastructure and innovation.
-    </p>
-    </div>
-    
-    <a href="mailto:root@synestate.com?subject=Hello" class="contact-button">Contact Us</a>
-    
-    <!-- Team Membership logos section -->
-    <div class="memberships">
-        <a href="https://www.linuxfoundation.org/" target="_blank">
-            <img src="images/thelinuxfoundation.png" alt="Linux Foundation - Member">
-        </a>
-        <a href="https://www.lfdecentralizedtrust.org" target="_blank">
-            <img src="images/lfdt-FM-SIG.png" alt="Linux Foundation Decentralized Trust (Financial Markets SIG)- Member">
-        </a>
-        <a href="https://identity.foundation" target="_blank">
-            <img src="images/DIF-logo-white-small.png" alt="DIF - Contributor">
-        </a>
-        <a href="https://cisi.org" target="_blank">
-            <img src="images/cisilogonew.png" alt="Chartered Institute for Securities and Investment (CISI) - Level 1 Certified Member">
-        </a>
-        <a href="https://pkic.org" target="_blank">
-            <img src="images/pkic-logo-black.svg" alt="PKI Consortium - Member">
-        </a>
-        <a href="https://trustoverip.org" target="_blank">
-            <img src="images/Trust_Over_IP.svg" alt="Trust Over IP Foundation - Member">
-        </a>
-        <a href="https://acm.org" target="_blank">
-            <img src="images/ACM.png" alt="ACM - Member">
-        </a>
-        <a href="https://sigops.org" target="_blank">
-            <img src="images/SIGOPS.png" alt="ACM SIGOPS - Member">
-        </a>
-    </div>
-    
-    <footer>
-        <!-- Social media links -->
-        <div class="social-links">
-            <a href="https://bsky.app/profile/synestate.bsky.social" target="_blank" aria-label="Bluesky">
-                <i class="fa-brands fa-bluesky"></i>
-            </a>
-            <a href="https://twitter.com/synestate" target="_blank" aria-label="X (Twitter)">
-                <i class="fa-brands fa-x-twitter"></i>
-            </a>
-            <a href="https://linkedin.com/in/naolduga" target="_blank" aria-label="LinkedIn">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/synestate" target="_blank" aria-label="GitHub">
-                <i class="fa-brands fa-github"></i>
-            </a>
-        </div>
-        
-        <div class="copyright">
-            <img src="logo.svg" alt="Synestate Logo"> © Synestate LLC, 2019-2025
-        </div>
-    </footer>
 </body>
+
 </html>
