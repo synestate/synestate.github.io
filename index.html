@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Synestate · Be trusted everywhere you do business</title>
+<meta name="description" content="Synestate is an R&D consultancy that helps your organization prove who it is, satisfy regulators, and reach global capital, so you can grow across borders and networks with confidence." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF8F3; --surface:#FFFFFF; --raise:#FFFDFA;
+    --ink:#211C16; --muted:#6F655A; --line:rgba(33,28,22,.11); --line2:rgba(33,28,22,.18);
+    --accent:#CF5A1E; --accent-2:#E07A2A; --on-accent:#FFFFFF; --tint:rgba(207,90,30,.10);
+    --glow:rgba(224,122,42,.20);
+    --display:"Bricolage Grotesque",-apple-system,"Segoe UI",sans-serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  html[data-theme="dark"]{
+    --bg:#15110D; --surface:#1E1812; --raise:#241D16;
+    --ink:#F2EBE0; --muted:#A99D8D; --line:rgba(242,235,224,.12); --line2:rgba(242,235,224,.22);
+    --accent:#FF9A52; --accent-2:#FFB070; --on-accent:#1A1209; --tint:rgba(255,154,82,.14);
+    --glow:rgba(255,138,60,.16);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;
+    transition:background .35s ease,color .35s ease;overflow-x:hidden}
+  a{color:inherit}
+  h1,h2,h3{margin:0;font-family:var(--display);font-weight:600;line-height:1.08;letter-spacing:-.015em}
+  p{margin:0}
+  .wrap{max-width:1000px;margin-inline:auto;padding-inline:22px}
+  .sec{padding:clamp(56px,8.5vw,100px) 0;border-top:1px solid var(--line)}
+  .lead{color:var(--muted);max-width:60ch}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;
+    letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
+
+  /* header */
+  header{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 84%,transparent);
+    backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;height:62px;gap:18px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand .glyph{height:20px;width:auto;display:block;color:var(--accent);transition:color .2s}
+  .brand:hover .glyph{color:var(--accent-2)}
+  .brand .word{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.01em;color:var(--ink)}
+  .brand .word .o{color:var(--accent)}
+  nav{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:14.5px;color:var(--muted)}
+  nav a.lnk:hover{color:var(--ink)}
+  nav a.ext{white-space:nowrap}
+  nav a.ext:hover{color:var(--accent)}
+  .iconbtn{appearance:none;background:transparent;border:1px solid var(--line2);color:var(--muted);
+    width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:15px;display:grid;place-items:center;transition:.2s}
+  .iconbtn:hover{color:var(--ink);border-color:var(--ink)}
+  .pill{background:var(--accent);color:var(--on-accent);border-radius:999px;padding:10px 17px;
+    font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap}
+  .pill:hover{background:var(--accent-2)}
+  .menu{position:relative}
+  .menu summary{list-style:none;cursor:pointer;font-size:14.5px;color:var(--muted);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+  .menu summary::-webkit-details-marker{display:none}
+  .menu summary::after{content:"▾";font-size:10px;opacity:.85}
+  .menu summary:hover,.menu[open] summary{color:var(--ink)}
+  .panel{position:absolute;top:calc(100% + 14px);right:0;width:272px;max-width:calc(100vw - 24px);
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;
+    box-shadow:0 18px 44px rgba(0,0,0,.22);z-index:40}
+  .grp{padding:4px 0}
+  .grp + .grp{border-top:1px solid var(--line);margin-top:6px;padding-top:10px}
+  .grp .lbl{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 6px 5px}
+  .panel a{display:block;font-size:14px;color:var(--ink);text-decoration:none;padding:7px 6px;border-radius:8px;transition:.15s}
+  .panel a:hover{background:var(--tint);color:var(--accent)}
+  @media(max-width:880px){nav a.lnk{display:none}}
+  @media(max-width:660px){.panel{position:fixed;top:60px;right:12px;left:auto;width:min(300px,calc(100vw - 24px))}}
+  @media(max-width:430px){.brand .word{display:none}}
+
+  /* buttons */
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .btn{border-radius:999px;padding:13px 22px;font-size:15px;font-weight:600;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;transition:.2s;border:1px solid transparent}
+  .btn-solid{background:var(--accent);color:var(--on-accent)} .btn-solid:hover{background:var(--accent-2);transform:translateY(-1px)}
+  .btn-line{border-color:var(--line2);color:var(--ink)} .btn-line:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* hero */
+  .hero{position:relative;padding:clamp(60px,10vw,116px) 0 clamp(42px,6vw,72px);overflow:hidden}
+  .hero .glow{position:absolute;z-index:0;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;
+    background:radial-gradient(circle,var(--glow),transparent 62%);filter:blur(12px);pointer-events:none}
+  .bgfx{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.06;
+    background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='100' viewBox='0 0 120 100'><g fill='none' stroke='%23E07A2A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M30 28H90M30 30V52M30 54H90M90 56V78M30 80H90'/></g></svg>");
+    background-size:120px 100px;animation:drift 55s linear infinite}
+  html[data-theme="dark"] .bgfx{opacity:.11}
+  @keyframes drift{from{background-position:0 0}to{background-position:240px 200px}}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{font-size:clamp(2.3rem,6.8vw,4.1rem);font-weight:700;max-width:15ch;margin:16px 0 0}
+  .hero h1 .hl{position:relative;white-space:nowrap}
+  .hero h1 .hl svg{position:absolute;left:0;right:0;bottom:-.16em;width:100%;height:.34em;color:var(--accent)}
+  .hero .lead{margin-top:22px;font-size:clamp(1.06rem,2vw,1.24rem);max-width:52ch;color:var(--muted)}
+  .hero .lead b{color:var(--ink);font-weight:600}
+  .hero .sub{margin-top:14px;color:var(--muted);max-width:54ch}
+
+  /* who */
+  .who{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+  .who .c{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;transition:.2s}
+  .who .c:hover{border-color:var(--line2);transform:translateY(-2px)}
+  .who h3{font-size:1.14rem;font-weight:600}
+  .who p{color:var(--muted);font-size:.95rem;margin-top:7px}
+  @media(max-width:620px){.who{grid-template-columns:1fr}}
+
+  /* help */
+  .h2big{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:600;margin-top:12px;max-width:20ch}
+  .help{margin-top:34px}
+  .item{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;
+    padding:24px 0;border-top:1px solid var(--line)}
+  .item:first-child{border-top:0}
+  .item .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:9px}
+  .item h3{font-size:1.32rem;font-weight:600}
+  .item p{color:var(--muted);margin-top:7px;max-width:64ch}
+
+  /* do */
+  .do{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
+  .do .c{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .do h3{font-size:1.06rem;font-weight:600}
+  .do p{color:var(--muted);font-size:.93rem;margin-top:7px}
+  @media(max-width:620px){.do{grid-template-columns:1fr}}
+  .techline{font-family:var(--mono);font-size:12.5px;letter-spacing:.07em;color:var(--muted);margin-top:14px;max-width:62ch}
+
+  /* why */
+  .why{background:var(--raise)}
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:30px}
+  .pillars h3{font-size:1.08rem;font-weight:600;margin-bottom:8px}
+  .pillars p{color:var(--muted);font-size:.95rem}
+  .pillars a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--tint)}
+  .pillars a:hover{border-color:var(--accent)}
+  @media(max-width:720px){.pillars{grid-template-columns:1fr;gap:22px}}
+  .affil{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+  .affil a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;
+    border:1px solid var(--line2);border-radius:9px;padding:8px 12px;background:var(--surface);transition:.2s}
+  .affil a:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* band */
+  .band{position:relative;overflow:hidden}
+  .band .wrap{position:relative;z-index:1}
+  .band h2{font-size:clamp(1.8rem,4.6vw,2.7rem);font-weight:600;max-width:16ch}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:28px 0}
+  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .social{display:flex;gap:16px;flex-wrap:wrap}
+  footer a:hover{color:var(--accent)}
+
+  .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}
+    .btn-solid:hover,.who .c:hover{transform:none}.bgfx{animation:none}}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:5px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Synestate home">
+      <svg class="glyph" viewBox="130.2 112.2 18.4 15.1" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M130.90 112.81L147.99 112.82M130.90 113.20L130.90 119.30M130.95 119.74L148.04 119.75M148.00 120.20L148.00 126.30M130.98 126.68L148.06 126.69"/></svg>
+      <span class="word">Synestate</span>
+    </a>
+    <nav>
+      <a class="lnk" href="#help">How we help</a>
+      <a class="lnk" href="#do">What we do</a>
+      <details class="menu">
+        <summary>Explore</summary>
+        <div class="panel" role="menu">
+          <div class="grp">
+            <span class="lbl">Ventures</span>
+            <a href="https://ethbusinessgroup.com" target="_blank" rel="noopener">ETH Business Group ↗</a>
+            <a href="https://ethtrusthub.com" target="_blank" rel="noopener">ETH Trust Hub · venture studio ↗</a>
+          </div>
+          <div class="grp">
+            <span class="lbl">Research</span>
+            <a href="https://eth.et" target="_blank" rel="noopener">ETH as a Liminal Namespace ↗</a>
+            <a href="https://ethlei.org" target="_blank" rel="noopener">The ETHLEI Protocol ↗</a>
+            <a href="https://tao.eth.et" target="_blank" rel="noopener">TAO Project ↗</a>
+          </div>
+          <div class="grp">
+            <span class="lbl">Principal</span>
+            <a href="https://naolduga.com" target="_blank" rel="noopener">Naol Duga ↗</a>
+          </div>
+        </div>
+      </details>
+      <button class="iconbtn" id="themeBtn" aria-label="Switch between light and dark">☾</button>
+      <a class="pill" href="mailto:root@synestate.com?subject=Inquiry">Get in touch</a>
+    </nav>
+  </div>
+</header>
+<span id="top"></span>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="bgfx" aria-hidden="true"></div>
+  <div class="glow"></div>
+  <div class="wrap">
+    <span class="eyebrow">R&amp;D consultancy · New York &amp; Addis Ababa</span>
+    <h1>Be <span class="hl">trusted<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 16 C 60 6, 130 6, 180 12 S 270 20, 296 9" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg></span> everywhere you do business.</h1>
+    <p class="lead">Synestate helps your organization <b>prove who it is</b>, satisfy the regulators you answer to, and reach <b>global capital</b>, so you can grow across borders and networks with confidence.</p>
+    <p class="sub">We bring together the two things most teams keep apart: the cyber trust that proves your identity, and the capital rails that let you transact.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="mailto:root@synestate.com?subject=Inquiry">Tell us what you’re building</a>
+      <a class="btn btn-line" href="#help">See how we help</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="sec" id="who">
+  <div class="wrap">
+    <span class="eyebrow rv">Who we work with</span>
+    <div class="who rv">
+      <div class="c"><h3>Organizations</h3><p>Prove who you are to partners, regulators, and networks, and open the door to trade across borders.</p></div>
+      <div class="c"><h3>Investors &amp; markets</h3><p>Move capital with counterparties whose identity you can verify, not simply trust.</p></div>
+      <div class="c"><h3>Builders &amp; founders</h3><p>Launch on identity and trust rails that already meet the standards, so you ship sooner.</p></div>
+      <div class="c"><h3>Governments &amp; institutions</h3><p>Stand up sovereign trust infrastructure that you own and control end to end.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HELP -->
+<section class="sec" id="help">
+  <div class="wrap">
+    <span class="eyebrow rv">How we help you succeed</span>
+    <h2 class="h2big rv">Turn trust from a blocker into your advantage.</h2>
+    <div class="help">
+      <div class="item rv"><span class="dot"></span><div>
+        <h3>Establish trusted identity</h3>
+        <p>We give your organization a verifiable identity, built on global standards like the Legal Entity Identifier, public key infrastructure, and verifiable credentials, that counterparties, regulators, and networks recognize on sight.</p>
+      </div></div>
+      <div class="item rv"><span class="dot"></span><div>
+        <h3>Satisfy regulators while keeping your speed</h3>
+        <p>We design systems that meet your reporting and compliance duties while leaving room to innovate, so proving trust never becomes the thing that holds you back.</p>
+      </div></div>
+      <div class="item rv"><span class="dot"></span><div>
+        <h3>Reach capital and new markets</h3>
+        <p>We connect you to payments, securities, trade finance, and FX, with infrastructure built for confidence across borders, so verified counterparties can transact with you anywhere.</p>
+      </div></div>
+      <div class="item rv"><span class="dot"></span><div>
+        <h3>Go from idea to working system</h3>
+        <p>We do not just advise. We prototype, build, and operate real ventures, so you adopt infrastructure that is already proven, not a slide deck.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DO -->
+<section class="sec" id="do">
+  <div class="wrap">
+    <span class="eyebrow rv">What we do</span>
+    <h2 class="h2big rv" style="font-size:clamp(1.6rem,3.6vw,2.2rem)">The infrastructure behind that trust.</h2>
+    <p class="techline rv">PKI · DLT · LEI · ENS · X.509 · Verifiable Credentials · Agentic AI</p>
+    <div class="do rv">
+      <div class="c"><h3>Identity &amp; trust</h3><p>Public key infrastructure, distributed ledgers, the LEI, verifiable credentials, and identity for the AI agents acting for you.</p></div>
+      <div class="c"><h3>Standards &amp; governance</h3><p>ISO 17442, X.509, ENS, and W3C Verifiable Credentials, built to recognized standards from day one.</p></div>
+      <div class="c"><h3>Capital &amp; markets</h3><p>Payments, securities, trade finance, and FX: the rails that let verified entities settle.</p></div>
+      <div class="c"><h3>Research to venture</h3><p>From paper to prototype to product, so what you adopt has already been tested.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="sec why" id="why">
+  <div class="wrap">
+    <span class="eyebrow rv">Why teams choose Synestate</span>
+    <h2 class="h2big rv" style="font-size:clamp(1.6rem,3.6vw,2.2rem);max-width:24ch">Depth you can rely on, delivery you can see.</h2>
+    <div class="pillars rv">
+      <div><h3>Open and built on standards</h3><p>We build with the standards community, so your infrastructure stays interoperable and recognized.</p></div>
+      <div><h3>Deep research</h3><p>Our work on organizational identity and trustworthy AI agents (<a href="https://eth.et" target="_blank" rel="noopener">eth.et</a>, <a href="https://ethlei.org" target="_blank" rel="noopener">ETHLEI</a>, <a href="https://tao.eth.et" target="_blank" rel="noopener">TAO</a>) keeps you ahead of where standards are heading.</p></div>
+      <div><h3>Proven delivery</h3><p>We operate <a href="https://ethbusinessgroup.com" target="_blank" rel="noopener">ETH Business Group</a>, built by our venture studio <a href="https://ethtrusthub.com" target="_blank" rel="noopener">ETH Trust Hub</a>: organizational identity, electronic sealing, and trade assurance.</p></div>
+    </div>
+    <div class="affil rv" aria-label="Standards and community affiliations">
+      <a href="https://www.lfdecentralizedtrust.org" target="_blank" rel="noopener">LF Decentralized Trust</a>
+      <a href="https://identity.foundation" target="_blank" rel="noopener">DIF</a>
+      <a href="https://pkic.org" target="_blank" rel="noopener">PKI Consortium</a>
+      <a href="https://trustoverip.org" target="_blank" rel="noopener">Trust Over IP</a>
+      <a href="https://cisi.org" target="_blank" rel="noopener">CISI</a>
+      <a href="https://acm.org" target="_blank" rel="noopener">ACM</a>
+      <a href="https://sigops.org" target="_blank" rel="noopener">SIGOPS</a>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<section class="sec band" id="contact">
+  <div class="bgfx" aria-hidden="true"></div>
+  <div class="wrap rv">
+    <span class="eyebrow">Let’s talk</span>
+    <h2 style="margin-top:12px">Tell us what you’re building.</h2>
+    <p class="lead" style="margin-top:16px">We will show you the path to trusted infrastructure that is ready for market, and where to start.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="mailto:root@synestate.com?subject=Inquiry">root@synestate.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Synestate, 2019 to 2026 · New York &amp; Addis Ababa</span>
+    <span class="social">
+      <a href="https://ethbusinessgroup.com" target="_blank" rel="noopener">Ventures</a>
+      <a href="https://ethtrusthub.com" target="_blank" rel="noopener">Studio</a>
+      <a href="https://eth.et" target="_blank" rel="noopener">Research</a>
+      <a href="https://naolduga.com" target="_blank" rel="noopener">Principal</a>
+      <a href="https://twitter.com/synestate" target="_blank" rel="noopener">X</a>
+      <a href="https://linkedin.com/in/synestate" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/synestate" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://bsky.app/profile/synestate.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  // theme: honor system on load, allow toggle
+  const root=document.documentElement, tBtn=document.getElementById('themeBtn');
+  function setTheme(t){root.setAttribute('data-theme',t);tBtn.textContent=t==='dark'?'☀':'☾';}
+  setTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  tBtn.addEventListener('click',()=>setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark'));
+
+  // close Explore menu on outside click
+  const menu=document.querySelector('.menu');
+  if(menu){document.addEventListener('click',(e)=>{if(menu.open && !menu.contains(e.target)) menu.open=false;});}
+
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
