@@ -1,334 +1,350 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<!doctype html>
+<html lang="en" class="t-dark">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Synestate · Be trusted everywhere you do business</title>
-<meta name="description" content="Synestate is an R&D consultancy that helps your organization prove who it is, satisfy regulators, and reach global capital, so you can grow across borders and networks with confidence." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Synestate builds the technology that lets the world check, sign and settle with Ethiopian companies: trusted company IDs, sealed documents and verified settlement.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Synestate · Trust in Ethiopia’s markets">
+<meta property="og:description" content="Trusted company IDs, sealed documents and verified settlement for Ethiopia’s markets.">
+<meta property="og:url" content="https://synestate.com/">
+<meta property="og:image" content="https://synestate.com/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1F4D3A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%231F4D3A' stroke='%23D08A5C' stroke-width='2'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%23F3EDDF'%3ES%3C/text%3E%3C/svg%3E">
+<title>Synestate · Trust in Ethiopia’s markets</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&amp;family=EB+Garamond:wght@400;600;700&amp;family=IM+Fell+English+SC&amp;display=swap">
 <style>
-  :root{
-    --bg:#FBF8F3; --surface:#FFFFFF; --raise:#FFFDFA;
-    --ink:#211C16; --muted:#6F655A; --line:rgba(33,28,22,.11); --line2:rgba(33,28,22,.18);
-    --accent:#CF5A1E; --accent-2:#E07A2A; --on-accent:#FFFFFF; --tint:rgba(207,90,30,.10);
-    --glow:rgba(224,122,42,.20);
-    --display:"Bricolage Grotesque",-apple-system,"Segoe UI",sans-serif;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-  }
-  html[data-theme="dark"]{
-    --bg:#15110D; --surface:#1E1812; --raise:#241D16;
-    --ink:#F2EBE0; --muted:#A99D8D; --line:rgba(242,235,224,.12); --line2:rgba(242,235,224,.22);
-    --accent:#FF9A52; --accent-2:#FFB070; --on-accent:#1A1209; --tint:rgba(255,154,82,.14);
-    --glow:rgba(255,138,60,.16);
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
-    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;
-    transition:background .35s ease,color .35s ease;overflow-x:hidden}
-  a{color:inherit}
-  h1,h2,h3{margin:0;font-family:var(--display);font-weight:600;line-height:1.08;letter-spacing:-.015em}
-  p{margin:0}
-  .wrap{max-width:1000px;margin-inline:auto;padding-inline:22px}
-  .sec{padding:clamp(56px,8.5vw,100px) 0;border-top:1px solid var(--line)}
-  .lead{color:var(--muted);max-width:60ch}
-  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;
-    letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
-  .eyebrow::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
-
-  /* header */
-  header{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 84%,transparent);
-    backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--line)}
-  header .wrap{display:flex;align-items:center;height:62px;gap:18px}
-  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-  .brand .glyph{height:20px;width:auto;display:block;color:var(--accent);transition:color .2s}
-  .brand:hover .glyph{color:var(--accent-2)}
-  .brand .word{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.01em;color:var(--ink)}
-  .brand .word .o{color:var(--accent)}
-  nav{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:14.5px;color:var(--muted)}
-  nav a.lnk:hover{color:var(--ink)}
-  nav a.ext{white-space:nowrap}
-  nav a.ext:hover{color:var(--accent)}
-  .iconbtn{appearance:none;background:transparent;border:1px solid var(--line2);color:var(--muted);
-    width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:15px;display:grid;place-items:center;transition:.2s}
-  .iconbtn:hover{color:var(--ink);border-color:var(--ink)}
-  .pill{background:var(--accent);color:var(--on-accent);border-radius:999px;padding:10px 17px;
-    font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap}
-  .pill:hover{background:var(--accent-2)}
-  .menu{position:relative}
-  .menu summary{list-style:none;cursor:pointer;font-size:14.5px;color:var(--muted);display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
-  .menu summary::-webkit-details-marker{display:none}
-  .menu summary::after{content:"▾";font-size:10px;opacity:.85}
-  .menu summary:hover,.menu[open] summary{color:var(--ink)}
-  .panel{position:absolute;top:calc(100% + 14px);right:0;width:272px;max-width:calc(100vw - 24px);
-    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;
-    box-shadow:0 18px 44px rgba(0,0,0,.22);z-index:40}
-  .grp{padding:4px 0}
-  .grp + .grp{border-top:1px solid var(--line);margin-top:6px;padding-top:10px}
-  .grp .lbl{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 6px 5px}
-  .panel a{display:block;font-size:14px;color:var(--ink);text-decoration:none;padding:7px 6px;border-radius:8px;transition:.15s}
-  .panel a:hover{background:var(--tint);color:var(--accent)}
-  @media(max-width:880px){nav a.lnk{display:none}}
-  @media(max-width:660px){.panel{position:fixed;top:60px;right:12px;left:auto;width:min(300px,calc(100vw - 24px))}}
-  @media(max-width:430px){.brand .word{display:none}}
-
-  /* buttons */
-  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-  .btn{border-radius:999px;padding:13px 22px;font-size:15px;font-weight:600;text-decoration:none;
-    display:inline-flex;align-items:center;gap:8px;transition:.2s;border:1px solid transparent}
-  .btn-solid{background:var(--accent);color:var(--on-accent)} .btn-solid:hover{background:var(--accent-2);transform:translateY(-1px)}
-  .btn-line{border-color:var(--line2);color:var(--ink)} .btn-line:hover{border-color:var(--accent);color:var(--accent)}
-
-  /* hero */
-  .hero{position:relative;padding:clamp(60px,10vw,116px) 0 clamp(42px,6vw,72px);overflow:hidden}
-  .hero .glow{position:absolute;z-index:0;top:-160px;right:-120px;width:560px;height:560px;border-radius:50%;
-    background:radial-gradient(circle,var(--glow),transparent 62%);filter:blur(12px);pointer-events:none}
-  .bgfx{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.06;
-    background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='100' viewBox='0 0 120 100'><g fill='none' stroke='%23E07A2A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M30 28H90M30 30V52M30 54H90M90 56V78M30 80H90'/></g></svg>");
-    background-size:120px 100px;animation:drift 55s linear infinite}
-  html[data-theme="dark"] .bgfx{opacity:.11}
-  @keyframes drift{from{background-position:0 0}to{background-position:240px 200px}}
-  .hero .wrap{position:relative;z-index:1}
-  .hero h1{font-size:clamp(2.3rem,6.8vw,4.1rem);font-weight:700;max-width:15ch;margin:16px 0 0}
-  .hero h1 .hl{position:relative;white-space:nowrap}
-  .hero h1 .hl svg{position:absolute;left:0;right:0;bottom:-.16em;width:100%;height:.34em;color:var(--accent)}
-  .hero .lead{margin-top:22px;font-size:clamp(1.06rem,2vw,1.24rem);max-width:52ch;color:var(--muted)}
-  .hero .lead b{color:var(--ink);font-weight:600}
-  .hero .sub{margin-top:14px;color:var(--muted);max-width:54ch}
-
-  /* who */
-  .who{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
-  .who .c{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;transition:.2s}
-  .who .c:hover{border-color:var(--line2);transform:translateY(-2px)}
-  .who h3{font-size:1.14rem;font-weight:600}
-  .who p{color:var(--muted);font-size:.95rem;margin-top:7px}
-  @media(max-width:620px){.who{grid-template-columns:1fr}}
-
-  /* help */
-  .h2big{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:600;margin-top:12px;max-width:20ch}
-  .help{margin-top:34px}
-  .item{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;
-    padding:24px 0;border-top:1px solid var(--line)}
-  .item:first-child{border-top:0}
-  .item .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:9px}
-  .item h3{font-size:1.32rem;font-weight:600}
-  .item p{color:var(--muted);margin-top:7px;max-width:64ch}
-
-  /* do */
-  .do{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
-  .do .c{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
-  .do h3{font-size:1.06rem;font-weight:600}
-  .do p{color:var(--muted);font-size:.93rem;margin-top:7px}
-  @media(max-width:620px){.do{grid-template-columns:1fr}}
-  .techline{font-family:var(--mono);font-size:12.5px;letter-spacing:.07em;color:var(--muted);margin-top:14px;max-width:62ch}
-
-  /* why */
-  .why{background:var(--raise)}
-  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:30px}
-  .pillars h3{font-size:1.08rem;font-weight:600;margin-bottom:8px}
-  .pillars p{color:var(--muted);font-size:.95rem}
-  .pillars a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--tint)}
-  .pillars a:hover{border-color:var(--accent)}
-  @media(max-width:720px){.pillars{grid-template-columns:1fr;gap:22px}}
-  .affil{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
-  .affil a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;
-    border:1px solid var(--line2);border-radius:9px;padding:8px 12px;background:var(--surface);transition:.2s}
-  .affil a:hover{color:var(--accent);border-color:var(--accent)}
-
-  /* band */
-  .band{position:relative;overflow:hidden}
-  .band .wrap{position:relative;z-index:1}
-  .band h2{font-size:clamp(1.8rem,4.6vw,2.7rem);font-weight:600;max-width:16ch}
-
-  /* footer */
-  footer{border-top:1px solid var(--line);padding:28px 0}
-  footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
-    font-family:var(--mono);font-size:12px;color:var(--muted)}
-  .social{display:flex;gap:16px;flex-wrap:wrap}
-  footer a:hover{color:var(--accent)}
-
-  .rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-  .rv.in{opacity:1;transform:none}
-  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}
-    .btn-solid:hover,.who .c:hover{transform:none}.bgfx{animation:none}}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:5px}
+body{margin:0}
+html{scroll-behavior:smooth}
+.syn{--accent:#9C5530;--on-accent:#FAF8F3;--seal:#E3A57A;--prove:#8FB8E6;--settle:#9BCDB2;
+ --inv:var(--primary);--inv-2:#2A5E48;--inv-line:#2F6650;--inv-stroke:#4C7F68;--inv-ink:#F3EDDF;--inv-ink-2:#CFE0D5;--inv-muted:#A9C4B5;--inv-hover:#E3A57A}
+.t-light{--bg:#F2EEE5;--bg-2:#E9E3D5;--card:#FAF8F3;--ink:#172338;--ink-2:#2E3743;--muted:#525A66;--outline:#B9AC8E;--outline-2:#D5CDB8;
+ --rule:rgba(31,77,58,.07);--ok:#1F4D3A;--hover:#8A4A26;--block-a:#E1ECE4;--block-b:#D1E2D7;--block-ink:#1F4D3A;--shadow:rgba(23,35,56,.16);--stop:#F2EEE5}
+.t-dark{--bg:#0D141C;--bg-2:#111B25;--card:#15202C;--ink:#EFE8D6;--ink-2:#D2CCBD;--muted:#A7ADB5;--outline:#3A4A5C;--outline-2:#2A3646;
+ --rule:rgba(208,138,92,.05);--ok:#9BCDB2;--hover:#E3A57A;--block-a:#16302A;--block-b:#1B3A31;--block-ink:#CFE6D9;--shadow:rgba(0,0,0,.55);--stop:#15202C;
+ --accent:#D08A5C;--on-accent:#0D141C;--inv:#0F2A20;--inv-2:#173A2D;--inv-line:#1F4A39;--inv-stroke:#3B6E58}
+.syn{background-color:var(--bg);color:var(--ink);background-image:repeating-linear-gradient(180deg,transparent 0 35px,var(--rule) 35px 36px);transition:background-color .25s ease,color .25s ease}
+a{color:inherit;transition:color .15s ease,text-decoration-color .15s ease}
+a.lk{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:4px;text-decoration-color:var(--outline)}
+a.lk:hover{color:var(--hover);text-decoration-color:currentColor;text-decoration-thickness:2.5px}
+a.lkd{text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--inv-stroke)}
+a.lkd:hover{color:var(--inv-hover);text-decoration-color:currentColor}
+a.nav{text-decoration:none;padding:10px 2px;border-bottom:2px solid transparent}
+a.nav:hover{color:var(--inv-hover);border-bottom-color:var(--inv-hover)}
+a.card{border:3px double var(--outline);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+a.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px var(--shadow);border-color:var(--primary)}
+a.card:hover .go{text-decoration:underline;text-underline-offset:4px;color:var(--hover)}
+a.card.inv:hover .go{color:var(--inv-hover)}
+a.brand{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:10px;text-decoration-color:var(--outline)}
+a.brand:hover{color:var(--hover);text-decoration-color:currentColor}
+a.brand.onaccent{text-decoration-color:rgba(243,237,223,.4)}
+a.brand.onaccent:hover{color:#E3A57A;text-decoration-color:#E3A57A}
+a.btn,button.btn{transition:transform .15s ease,filter .15s ease}
+a.btn:hover,button.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+button.icon{background:transparent;border:1.5px solid var(--inv-stroke);color:var(--inv-ink);border-radius:999px;width:44px;height:44px;padding:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+button.icon:hover{border-color:var(--inv-hover);color:var(--inv-hover)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.label{font-family:'IM Fell English SC',serif;font-weight:400;font-size:16px;letter-spacing:.06em}
+@keyframes flow{to{stroke-dashoffset:-48}}
+@keyframes flowr{to{stroke-dashoffset:48}}
+.gil{position:absolute;z-index:0;pointer-events:none;width:860px;height:860px;left:calc(50% + 457px - 430px);bottom:calc(300px - 430px)}
+.mkt{position:absolute;z-index:0;pointer-events:none;top:0;left:0;width:min(760px,60vw);height:auto;-webkit-mask-image:linear-gradient(135deg,#000 30%,transparent 80%);mask-image:linear-gradient(135deg,#000 30%,transparent 80%);opacity:.5}
+.gilmini{position:absolute;z-index:-1;pointer-events:none;width:320px;height:320px;right:-90px;top:-90px}
+.grat{position:absolute;z-index:-1;pointer-events:none;width:1200px;height:1200px;left:calc(50% - 600px);top:calc(50% - 600px)}
+.routes{position:absolute;z-index:-1;pointer-events:none;left:0;top:0;width:100%;height:clamp(420px,60vw,640px)}
+.gilspin{will-change:transform;transform-origin:500px 500px;animation:gilspin 240s linear infinite}
+@keyframes gilspin{to{transform:rotate(360deg)}}
+@media (max-width: 1240px){.gil{left:calc(88% - 430px)}}
+@media (max-width: 800px){.mkt{width:100vw;opacity:.35}.gil{width:130vw;height:130vw;left:-15vw;bottom:calc(130px - 65vw)}}
+.flow{animation:flow 1.8s linear infinite}
+.flowr{animation:flowr 2.4s linear infinite}
+@media (prefers-reduced-motion: reduce){.flow,.flowr,.gilspin{animation:none}html{scroll-behavior:auto}}
+.navlinks{display:flex;align-items:center;gap:28px}
+button.menubtn{display:none}
+.mobilemenu{display:none}
+.narrow{display:none}
+.mobilemenu[hidden]{display:none!important}
+html.t-dark .ic-sun,html.t-light .ic-moon{display:inline}
+.ic-sun,.ic-moon{display:none}
+@media (max-width: 800px){
+ .navlinks{display:none}
+ button.menubtn{display:inline-flex}
+ .mobilemenu{display:flex}
+ .wide{display:none}
+ .narrow{display:block}
+}
 </style>
 </head>
 <body>
+<div id="root" class="syn t-dark" style="--primary: #1F4D3A; font-family: 'EB Garamond', serif; font-size: 19px; line-height: 1.6">
 
-<header>
-  <div class="wrap">
-    <a class="brand" href="#top" aria-label="Synestate home">
-      <svg class="glyph" viewBox="130.2 112.2 18.4 15.1" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M130.90 112.81L147.99 112.82M130.90 113.20L130.90 119.30M130.95 119.74L148.04 119.75M148.00 120.20L148.00 126.30M130.98 126.68L148.06 126.69"/></svg>
-      <span class="word">Synestate</span>
-    </a>
-    <nav>
-      <a class="lnk" href="#help">How we help</a>
-      <a class="lnk" href="#do">What we do</a>
-      <details class="menu">
-        <summary>Explore</summary>
-        <div class="panel" role="menu">
-          <div class="grp">
-            <span class="lbl">Ventures</span>
-            <a href="https://ethbusinessgroup.com" target="_blank" rel="noopener">ETH Business Group ↗</a>
-            <a href="https://ethtrusthub.com" target="_blank" rel="noopener">ETH Trust Hub · venture studio ↗</a>
-          </div>
-          <div class="grp">
-            <span class="lbl">Research</span>
-            <a href="https://eth.et" target="_blank" rel="noopener">ETH as a Liminal Namespace ↗</a>
-            <a href="https://ethlei.org" target="_blank" rel="noopener">The ETHLEI Protocol ↗</a>
-            <a href="https://tao.eth.et" target="_blank" rel="noopener">TAO Project ↗</a>
-          </div>
-          <div class="grp">
-            <span class="lbl">Principal</span>
-            <a href="https://naolduga.com" target="_blank" rel="noopener">Naol Duga ↗</a>
-          </div>
-        </div>
-      </details>
-      <button class="iconbtn" id="themeBtn" aria-label="Switch between light and dark">☾</button>
-      <a class="pill" href="mailto:root@synestate.com?subject=Inquiry">Get in touch</a>
-    </nav>
-  </div>
+<!-- HEADER -->
+<header style="position: sticky; top: 0; z-index: 10; background: var(--inv); color: var(--inv-ink); border-bottom: 1px solid var(--inv-line)">
+<div style="max-width: 1240px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" style="text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700; letter-spacing: 0.01em">Synestate</a>
+<div style="display: flex; align-items: center; gap: 12px">
+<nav class="navlinks" aria-label="Main" style="font-size: 16px; font-weight: 600; color: var(--inv-ink-2)">
+<a class="nav" href="#ventures">Ventures</a>
+<a class="nav" href="#research">Research</a>
+<a class="nav" href="https://ontrusting.com">Podcast</a>
+<a class="btn" href="mailto:root@synestate.com?subject=Inquiry" style="text-decoration: none; background: var(--accent); color: var(--on-accent); font-weight: 700; padding: 10px 20px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Get in touch</a>
+</nav>
+<button class="icon" id="themeBtn" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+<span class="ic-sun"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+<span class="ic-moon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg></span>
+</button>
+<button class="icon menubtn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+</button>
+</div>
+</div>
+<nav id="mobileMenu" hidden class="mobilemenu" aria-label="Mobile" style="flex-direction: column; padding: 8px 24px 20px; gap: 4px; font-size: 20px; font-weight: 600; border-top: 1px solid var(--inv-line)">
+<a class="nav" href="#ventures" data-close>Ventures</a>
+<a class="nav" href="#research" data-close>Research</a>
+<a class="nav" href="https://ontrusting.com">Podcast</a>
+<a class="btn" href="mailto:root@synestate.com?subject=Inquiry" style="text-decoration: none; background: var(--accent); color: var(--on-accent); font-weight: 700; padding: 12px 20px; border-radius: 999px; margin-top: 10px; text-align: center">Get in touch</a>
+</nav>
 </header>
-<span id="top"></span>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="bgfx" aria-hidden="true"></div>
-  <div class="glow"></div>
-  <div class="wrap">
-    <span class="eyebrow">R&amp;D consultancy · New York &amp; Addis Ababa</span>
-    <h1>Be <span class="hl">trusted<svg viewBox="0 0 300 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 16 C 60 6, 130 6, 180 12 S 270 20, 296 9" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/></svg></span> everywhere you do business.</h1>
-    <p class="lead">Synestate helps your organization <b>prove who it is</b>, satisfy the regulators you answer to, and reach <b>global capital</b>, so you can grow across borders and networks with confidence.</p>
-    <p class="sub">We bring together the two things most teams keep apart: the cyber trust that proves your identity, and the capital rails that let you transact.</p>
-    <div class="cta">
-      <a class="btn btn-solid" href="mailto:root@synestate.com?subject=Inquiry">Tell us what you’re building</a>
-      <a class="btn btn-line" href="#help">See how we help</a>
-    </div>
-  </div>
+<section id="top" style="position: relative; overflow: hidden; background: var(--inv); color: var(--inv-ink)">
+<svg class="gil" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g class="gilspin" style="fill: none; stroke: var(--seal); stroke-width: 1.1; opacity: 0.14"><path d="M980 500 979 495 977 490 973 485 968 481 962 477 954 473 945 469 934 466 922 464 909 462 895 461 880 461 864 462 847 463 829 465 810 468 791 472 771 477 751 483 730 490 709 498 688 506 666 516 645 526 624 538 603 550 582 563 562 576 542 591 522 606 504 621 485 637 468 653 451 670 436 687 421 704 407 722 394 739 382 756 372 773 362 790 353 806 346 822 339 837 334 852 329 866 326 879 324 892 323 903 322 914 323 923 324 931 326 938 329 944 333 948 337 951 342 953 347 953 352 952 358 950 364 946 370 940 377 933 383 925 389 915 395 904 401 892 407 879 412 864 416 848 421 831 424 813 427 794 430 774 431 753 432 731 432 709 432 687 430 664 428 640 425 617 421 593 416 569 411 545 404 521 397 498 389 475 381 452 371 430 361 408 351 387 340 367 329 348 317 330 305 312 292 296 280 280 267 266 255 253 242 241 230 231 218 221 207 213 196 206 185 200 175 196 166 193 157 190 149 190 142 190 136 191 132 194 128 197 125 201 124 206 124 212 125 219 127 226 131 234 136 243 142 252 149 261 158 270 169 280 180 290 193 300 207 309 222 319 239 328 256 338 275 346 294 355 314 362 336 370 357 376 380 382 403 388 427 392 451 396 475 399 499 402 524 403 548 404 573 404 597 403 621 401 644 399 667 396 689 392 711 387 732 382 752 376 771 370 789 363 806 356 822 348 837 340 851 332 863 324 874 316 883 308 892 300 899 292 904 284 908 277 911 270 913 264 913 258 911 253 909 249 905 245 900 243 894 241 887 240 879 240 870 242 859 244 849 247 837 252 825 258 812 265 799 273 785 282 771 293 757 305 742 318 728 331 713 346 699 362 685 379 671 397 658 416 645 436 632 456 620 477 609 499 598 521 588 543 579 566 570 589 563 612 556 635 550 658 545 680 541 703 537 725 535 747 533 768 532 789 532 808 533 827 534 845 536 863 539 879 542 894 546 907 550 920 555 931 560 941 565 949 571 956 576 962 581 966 587 969 592 970 597 970 602 968 606 965 610 961 614 955 617 948 619 940 620 930 621 919 621 907 620 894 618 880 616 865 612 850 607 833 601 816 595 799 587 781 578 762 568 744 558 725 546 706 533 687 520 668 505 649 490 631 474 612 457 595 439 577 421 561 403 545 384 529 365 515 345 501 325 488 305 476 286 465 266 455 246 446 227 437 208 430 190 424 172 419 155 415 138 411 123 409 108 408 94 407 82 407 70 408 60 410 51 412 43 415 36 419 31 423 27 427 25 432 24 437 25 442 27 447 31 452 36 457 42 462 50 467 59 472 70 476 82 479 95 483 109 485 124 487 141 489 158 490 177 490 196 489 216 487 237 485 258 481 279 477 301 472 324 466 346 459 369 451 391 442 414 433 436 423 458 412 479 400 500 387 521 374 541 361 560 347 578 332 596 318 613 302 628 287 643 272 657 256 669 241 681 226 691 211 700 196 708 182 715 169 721 156 726 143 729 131 732 121 733 111 733 102 733 94 731 87 729 82 725 77 721 74 717 72 711 72 706 73 699 75 693 79 686 84 678 90 671 98 663 107 656 118 649 130 641 143 634 157 628 173 621 190 615 208 610 226 605 246 601 267 597 288 594 311 592 333 591 357 590 380 590 404 591 428 593 453 596 477 599 501 603 526 608 549 614 573 621 596 628 619 635 640 644 662 653 682 662 701 672 720 682 737 692 754 703 769 713 783 724 796 735 808 745 819 755 828 765 836 775 842 784 848 793 852 801 854 808 856 815 856 820 855 825 853 829 850 832 845 833 840 834 834 833 827 832 819 829 810 824 801 819 791 812 780 804 770 795 759 784 747 772 736 759 724 745 713 729 701 713 690 695 679 677 668 657 658 637 648 616 638 594 629 572 621 549 614 526 607 502 601 478 595 454 591 430 587 406 584 382 582 358 581 334 581 311 581 289 582 267 584 246 587 226 590 206 594 188 598 170 603 154 609 139 615 125 621 112 627 100 634 90 641 81 648 74 655 68 661 63 668 60 674 59 680 58 685 59 690 62 695 66 699 71 702 77 704 84 705 93 706 103 705 113 704 125 702 137 698 151 694 164 688 179 681 194 674 210 665 225 654 241 643 258 631 274 618 290 603 307 588 323 572 338 555 354 537 369 518 383 499 397 479 411 458 423 437 435 416 447 394 457 372 467 350 475 328 483 307 490 285 496 263 501 242 505 222 509 202 511 183 513 164 513 146 513 129 512 114 511 99 509 85 506 73 503 61 499 51 495 43 490 36 486 30 481 26 476 23 471 21 466 21 461 23 456 26 452 30 448 36 444 43 441 52 438 62 436 73 435 85 435 98 435 113 436 128 438 145 440 162 444 180 449 198 454 218 461 237 468 257 477 278 486 298 497 319 508 339 520 360 533 380 547 400 561 420 577 439 592 458 609 476 626 493 643 510 661 526 678 541 697 556 715 569 733 581 751 593 769 603 786 612 804 621 820 628 837 634 852 639 867 643 881 646 894 648 906 649 918 650 928 649 937 648 944 645 951 643 956 639 960 635 962 631 963 626 962 620 960 615 957 609 952 603 946 597 938 592 929 586 919 581 907 575 894 570 880 566 864 562 848 559 830 556 811 554 792 552 772 551 751 551 729 552 707 554 684 556 661 559 638 563 614 568 591 574 567 581 544 588 521 597 498 606 476 615 454 626 432 637 412 648 392 660 373 673 355 685 337 698 321 712 306 725 292 739 279 752 267 765 256 779 247 791 239 804 232 816 226 827 221 838 218 848 216 857 214 866 214 873 215 880 217 885 220 890 224 893 229 895 234 896 241 895 247 893 255 890 263 885 271 879 279 872 288 863 297 853 306 842 315 829 324 816 332 801 341 784 349 767 357 749 364 729 371 709 377 688 383 666 388 644 392 621 396 597 398 573 401 549 402 525 402 500 402 475 401 451 398 427 396 403 392 379 388 356 383 334 377 312 371 291 364 271 357 251 349 233 341 216 332 199 324 184 315 171 306 158 297 147 288 137 279 128 271 121 263 115 255 110 247 107 241 105 234 104 229 105 224 107 220 110 217 115 215 120 214 127 214 134 216 143 218 152 221 162 226 173 232 184 239 196 247 209 256 221 267 235 279 248 292 261 306 275 321 288 337 302 355 315 373 327 392 340 412 352 432 363 454 374 476 385 498 394 521 403 544 412 567 419 591 426 614 432 638 437 661 441 684 444 707 446 729 448 751 449 772 449 792 448 811 446 830 444 848 441 864 438 880 434 894 430 907 425 919 419 929 414 938 408 946 403 952 397 957 391 960 385 962 380 963 374 962 369 960 365 956 361 951 357 944 355 937 352 928 351 918 350 906 351 894 352 881 354 867 357 852 361 837 366 820 372 804 379 786 388 769 397 751 407 733 419 715 431 697 444 678 459 661 474 643 490 626 507 609 524 592 542 577 561 561 580 547 600 533 620 520 640 508 661 497 681 486 702 477 722 468 743 461 763 454 782 449 802 444 820 440 838 438 855 436 872 435 887 435 902 435 915 436 927 438 938 441 948 444 957 448 964 452 970 456 974 461 977 466 979 471 979 476 977 481 974 486 970 490 964 495 957 499 949 503 939 506 927 509 915 511 901 512 886 513 871 513 854 513 836 511 817 509 798 505 778 501 758 496 737 490 715 483 693 475 672 467 650 457 628 447 606 435 584 423 563 411 542 397 521 383 501 369 482 354 463 338 445 323 428 307 412 290 397 274 382 258 369 241 357 225 346 210 335 194 326 179 319 164 312 151 306 137 302 125 298 113 296 103 295 93 294 84 295 77 296 71 298 66 301 62 305 59 310 58 315 59 320 60 326 63 332 68 339 74 345 81 352 90 359 100 366 112 373 125 379 139 385 154 391 170 397 188 402 206 406 226 410 246 413 267 416 289 418 311 419 334 419 358 419 382 418 406 416 430 413 454 409 478 405 502 399 526 393 549 386 572 379 594 371 616 362 637 352 657 342 677 332 695 321 713 310 729 299 745 287 759 276 772 264 784 253 795 241 804 230 812 220 819 209 824 199 829 190 832 181 833 173 834 166 833 160 832 155 829 150 825 147 820 145 815 144 808 144 801 146 793 148 784 152 775 158 765 164 755 172 745 181 735 192 724 204 713 217 703 231 692 246 682 263 672 280 662 299 653 318 644 338 635 360 628 381 621 404 614 427 608 451 603 474 599 499 596 523 593 547 591 572 590 596 590 620 591 643 592 667 594 689 597 712 601 733 605 754 610 774 615 792 621 810 628 827 634 843 641 857 649 870 656 882 663 893 671 902 678 910 686 916 693 921 699 925 706 927 711 928 717 928 721 926 725 923 729 918 731 913 733 906 733 898 733 889 732 879 729 869 726 857 721 844 715 831 708 818 700 804 691 789 681 774 669 759 657 744 643 728 628 713 613 698 596 682 578 668 560 653 541 639 521 626 500 613 479 600 458 588 436 577 414 567 391 558 369 549 346 541 324 534 301 528 279 523 258 519 237 515 216 513 196 511 177 510 158 510 141 511 124 513 109 515 95 517 82 521 70 524 59 528 50 533 42 538 36 543 31 548 27 553 25 558 24 563 25 568 27 573 31 577 36 581 43 585 51 588 60 590 70 592 82 593 94 593 108 592 123 591 138 589 155 585 172 581 190 576 208 570 227 563 246 554 266 545 286 535 305 524 325 512 345 499 365 485 384 471 403 455 421 439 439 423 457 405 474 388 490 369 505 351 520 332 533 313 546 294 558 275 568 256 578 238 587 219 595 201 601 184 607 167 612 150 616 135 618 120 620 106 621 93 621 81 620 70 619 60 617 52 614 45 610 39 606 35 602 32 597 30 592 30 587 31 581 34 576 38 571 44 565 51 560 59 555 69 550 80 546 93 542 106 539 121 536 137 534 155 533 173 532 192 532 211 533 232 535 253 537 275 541 297 545 320 550 342 556 365 563 388 570 411 579 434 588 457 598 479 609 501 620 523 632 544 645 564 658 584 671 603 685 621 699 638 713 654 728 669 742 682 757 695 771 707 785 718 799 727 812 735 825 742 837 748 849 753 859 756 870 758 879 760 887 760 894 759 900 757 905 755 909 751 911 747 913 742 913 736 911 730 908 723 904 716 899 708 892 700 883 692 874 684 863 676 851 668 837 660 822 652 806 644 789 637 771 630 752 624 732 618 711 613 689 608 667 604 644 601 621 599 597 597 573 596 548 596 524 597 499 598 475 601 451 604 427 608 403 612 380 618 357 624 336 630 314 638 294 645 275 654 256 662 239 672 222 681 207 691 193 700 180 710 169 720 158 730 149 739 142 748 136 757 131 766 127 774 125 781 124 788 124 794 125 799 128 803 132 806 136 809 142 810 149 810 157 810 166 807 175 804 185 800 196 794 207 787 218 779 230 769 242 759 255 747 267 734 280 720 292 704 305 688 317 670 329 652 340 633 351 613 361 592 371 570 381 548 389 525 397 502 404 479 411 455 416 431 421 407 425 383 428 360 430 336 432 313 432 291 432 269 431 247 430 226 427 206 424 187 421 169 416 152 412 136 407 121 401 108 395 96 389 85 383 75 377 67 370 60 364 54 358 50 352 48 347 47 342 47 337 49 333 52 329 56 326 62 324 69 323 77 322 86 323 97 324 108 326 121 329 134 334 148 339 163 346 178 353 194 362 210 372 227 382 244 394 261 407 278 421 296 436 313 451 330 468 347 485 363 504 379 522 394 542 409 562 424 582 437 603 450 624 462 645 474 666 484 688 494 709 502 730 510 751 517 771 523 791 528 810 532 829 535 847 537 864 538 880 539 895 539 909 538 922 536 934 534 945 531 954 527 962 523 968 519 973 515 977 510 979 505Z"></path><path d="M951 562 950 562 948 562 945 562 941 562 936 562 930 562 922 562 913 562 904 563 893 564 881 565 869 567 855 569 841 571 826 574 810 577 793 581 776 585 758 590 740 596 722 602 703 608 684 615 665 623 646 631 626 639 607 648 588 658 569 668 551 678 532 689 514 700 497 711 480 722 463 734 448 745 432 757 418 769 404 780 391 792 379 803 367 814 357 824 347 834 338 844 329 853 322 862 316 870 310 877 305 884 301 889 298 894 295 898 293 901 292 903 291 904 291 904 291 903 292 901 293 897 295 893 297 887 299 881 301 873 304 864 307 854 310 844 312 832 315 819 318 805 320 790 322 774 325 758 326 741 328 723 329 704 330 685 330 666 330 646 330 625 329 604 327 583 325 562 323 541 320 520 317 499 313 478 309 457 305 437 300 417 295 397 289 378 283 360 278 342 271 324 265 308 259 292 252 277 246 263 239 250 233 238 227 227 221 216 216 207 211 199 206 191 202 185 198 180 195 175 193 172 191 170 190 168 189 167 190 168 191 169 193 171 197 173 201 177 206 181 211 185 218 191 226 196 235 202 245 209 256 215 267 222 280 230 293 237 308 244 323 252 339 259 356 267 373 274 391 281 410 288 429 294 449 300 469 306 489 312 510 317 530 322 551 326 572 330 593 333 614 336 635 338 655 340 675 342 695 343 714 343 733 343 751 343 768 343 785 342 800 341 815 339 829 337 843 336 855 334 866 332 876 330 885 328 893 326 900 324 906 322 910 321 914 320 916 319 917 319 917 319 916 319 914 321 911 322 907 325 902 328 896 331 890 336 882 341 874 347 865 353 855 361 845 369 834 378 823 388 811 399 799 410 787 422 775 435 762 449 750 463 737 478 724 494 712 510 699 526 687 544 675 561 664 579 653 597 642 616 631 634 621 653 612 671 603 690 595 708 587 727 580 745 573 763 567 780 561 797 556 813 552 829 548 843 544 858 542 871 539 884 537 895 535 906 534 916 533 925 532 932 532 939 532 944 531 948 531 951 531 953 531 954 531 953 531 952 530 949 529 945 528 940 527 934 525 926 523 918 521 909 518 899 514 888 510 876 506 863 500 849 494 835 488 820 481 805 473 789 465 773 456 756 447 739 436 722 426 705 414 688 403 671 390 654 378 637 364 620 351 603 337 587 323 571 309 556 294 541 279 527 265 513 250 500 236 487 221 475 207 464 193 453 180 444 167 435 154 426 142 419 131 412 120 405 110 400 101 395 93 391 85 387 79 384 73 382 69 380 66 379 63 378 62 377 62 377 63 377 65 378 69 378 73 379 79 380 86 381 94 381 103 382 113 383 124 383 136 384 149 384 163 384 178 383 194 382 210 381 227 379 245 377 263 374 282 371 302 368 321 364 341 359 361 354 381 348 402 342 422 336 442 329 462 321 482 313 501 305 520 297 539 288 557 279 575 270 592 260 608 251 624 241 639 232 653 222 667 213 679 204 691 195 702 186 711 178 720 170 729 163 736 156 742 150 747 145 752 140 756 136 758 133 761 130 762 129 762 128 762 129 761 130 760 133 758 136 756 141 753 146 750 153 746 161 742 169 738 179 734 190 729 202 725 215 720 228 716 243 712 258 707 275 703 292 699 310 696 328 693 347 690 367 687 387 685 407 683 428 682 449 681 470 681 492 681 513 681 534 682 555 684 576 686 597 688 618 690 638 693 657 697 676 700 694 704 712 708 729 712 745 717 760 721 775 726 788 730 801 735 812 739 823 743 833 747 841 750 849 754 855 756 860 759 865 760 868 762 870 762 871 762 872 762 871 760 869 758 867 755 863 751 859 746 854 741 849 734 842 727 836 719 828 709 820 699 812 688 803 676 794 664 785 650 776 636 766 621 757 605 747 588 738 571 728 553 719 535 710 516 701 497 693 478 685 458 677 438 670 418 663 397 656 377 650 357 645 337 640 317 635 297 632 278 628 259 625 241 623 224 620 207 619 190 618 175 617 160 616 146 616 133 616 121 617 110 617 101 618 92 619 84 620 78 620 72 621 68 622 65 622 63 623 62 623 62 623 64 622 66 621 70 619 75 617 80 615 87 612 95 608 103 604 112 599 123 593 133 587 145 580 157 572 170 564 183 554 196 544 210 534 225 522 239 510 253 498 268 484 283 470 297 456 312 441 326 425 340 409 354 393 367 376 380 360 393 343 405 325 417 308 428 291 439 274 449 257 458 240 467 224 475 207 483 192 490 176 496 162 501 148 507 134 511 122 515 110 518 99 521 89 524 80 526 72 527 65 529 59 530 54 530 50 531 48 531 46 531 46 531 47 531 49 531 53 532 57 532 63 533 69 533 77 534 86 536 96 537 107 540 119 542 132 545 145 549 160 553 175 557 191 562 207 568 224 574 241 581 259 589 277 596 296 605 314 614 333 624 351 634 370 644 389 655 407 666 425 678 443 690 460 702 477 714 494 727 510 740 525 752 540 765 554 778 568 790 580 802 592 814 604 826 614 837 624 847 633 857 641 867 648 876 655 884 660 891 665 898 670 903 673 908 676 912 678 915 680 917 681 917 681 917 681 915 681 913 680 909 679 904 677 898 676 891 674 883 672 874 670 864 668 852 666 840 664 826 662 812 661 797 659 781 658 764 657 747 657 729 657 710 657 691 658 671 659 651 660 630 662 610 665 589 668 568 671 547 675 526 679 505 684 485 689 464 695 444 701 425 707 406 714 387 721 369 728 352 735 335 742 320 750 305 757 290 765 277 772 265 779 253 786 243 793 233 799 224 805 217 811 210 816 204 820 200 824 196 827 193 830 191 831 190 832 189 832 190 832 191 830 193 827 196 824 199 819 203 814 207 807 212 800 217 791 223 782 229 771 235 760 241 747 247 734 254 720 260 705 266 689 273 672 279 655 285 636 290 618 296 599 301 579 306 559 310 538 314 517 318 496 321 475 324 454 326 433 328 412 329 391 330 370 330 350 330 330 330 311 329 292 328 273 326 255 324 238 322 222 320 207 317 192 314 178 312 166 309 154 306 143 303 134 301 125 299 118 296 111 294 106 293 102 292 99 291 97 291 96 291 96 292 97 293 100 295 103 298 107 302 112 306 118 311 124 317 132 324 140 331 149 340 158 349 168 359 178 370 189 381 200 394 211 407 222 421 234 436 245 451 257 467 269 483 280 501 291 518 303 536 313 555 324 573 334 592 344 611 354 631 362 650 371 669 379 688 386 707 393 726 400 744 406 762 411 780 416 797 420 813 424 829 427 844 430 858 432 871 434 884 435 895 436 906 437 915 438 924 438 931 438 937 438 942 438 946 438 949 438 950 438 951 438 950 438 948 439 945 440 941 441 935 442 929 444 921 446 913 449 904 452 893 456 882 461 870 466 858 472 844 478 830 485 816 492 801 501 786 510 770 519 754 530 738 540 721 552 705 564 688 576 672 590 656 603 640 617 624 632 609 646 594 661 579 676 565 692 551 707 538 723 525 738 513 754 502 769 491 784 481 799 472 813 463 827 455 841 448 854 441 866 435 878 430 888 425 899 421 908 418 916 415 923 413 930 411 935 410 939 409 943 408 945 407 945 407 945 407 944 408 941 408 937 408 932 409 926 409 919 410 911 410 902 410 891 409 880 409 867 408 854 406 840 405 825 403 809 400 792 397 775 394 757 390 739 385 720 380 701 374 682 368 662 362 642 355 623 347 603 339 583 330 564 322 544 312 525 303 506 293 488 283 470 272 453 262 436 251 420 241 404 230 389 220 375 209 362 199 350 189 338 180 327 170 317 162 308 153 300 146 293 139 286 132 281 127 276 122 272 118 269 115 267 113 265 112 264 111 264 112 264 114 265 117 266 121 268 126 270 132 273 139 276 147 279 157 282 167 285 178 289 191 293 204 296 218 300 233 303 250 306 266 309 284 312 302 315 321 317 340 319 360 320 381 321 401 322 422 322 443 322 464 321 486 320 507 318 528 316 549 313 570 311 590 307 611 303 630 299 649 295 668 290 686 285 703 280 719 275 735 270 749 264 763 259 776 253 788 248 799 243 809 238 818 233 826 229 833 225 839 222 843 219 847 216 850 215 852 213 853 213 853 213 852 214 850 216 847 219 844 222 840 226 835 232 830 238 824 245 817 253 810 262 803 272 795 283 787 295 779 308 771 321 762 336 754 351 745 367 737 384 729 401 720 419 713 437 705 456 698 476 691 496 684 516 678 536 672 557 667 577 662 598 657 619 653 639 650 660 647 680 644 699 642 718 641 737 640 755 639 773 639 790 639 806 639 821 639 836 640 849 641 862 643 873 644 884 645 893 647 902 648 909 649 915 650 920 651 924 652 927 652 928 652 929 652 928 651 926 650 924 648 920 645 915 642 909 639 902 634 895 629 886 623 877 617 867 609 857 601 845 593 834 583 821 573 809 561 796 550 783 537 769 524 756 510 742 496 728 480 715 465 701 449 688 432 675 415 662 398 649 380 637 363 625 345 614 327 603 309 593 291 583 273 574 256 565 238 557 221 550 205 543 189 537 173 531 158 526 144 521 131 517 118 514 106 511 96 508 86 506 77 505 69 503 62 502 56 501 52 501 48 500 46 500 45 500 45 500 47 500 49 499 53 499 57 498 63 498 70 497 79 495 88 493 98 491 109 489 121 486 134 482 147 478 162 473 177 468 192 462 208 456 225 449 242 441 259 433 277 424 295 415 313 405 331 394 349 384 367 372 384 360 402 348 419 335 436 322 452 309 468 296 484 282 499 269 513 255 527 241 540 228 552 214 564 201 575 188 585 176 595 164 603 152 611 141 618 131 625 121 630 112 635 104 639 96 643 90 646 84 648 79 650 76 651 73 652 72 652 71 652 72 652 74 651 77 650 81 649 86 648 93 646 100 645 109 644 118 642 129 641 141 640 154 639 168 639 182 639 198 639 214 639 231 640 249 641 267 643 286 645 305 647 325 651 345 654 365 658 386 663 406 668 427 673 448 679 468 685 488 692 509 699 528 707 548 714 567 722 585 730 603 739 620 747 637 756 652 764 667 773 682 781 695 789 708 797 719 805 730 812 740 819 748 825 756 831 763 836 769 841 775 845 779 848 782 851 785 852 786 853 787 853 787 852 786 850 785 847 783 843 781 837 777 831 774 824 770 816 766 807 761 797 756 785 751 773 745 760 740 746 735 731 729 716 724 699 719 682 714 664 709 645 704 626 700 606 696 586 692 566 689 545 686 524 684 502 682 481 680 460 679 439 678 418 678 397 678 376 679 356 680 336 682 317 684 298 686 280 688 263 691 246 694 230 698 215 701 201 705 188 708 176 712 165 715 154 719 145 722 137 725 130 728 124 730 120 733 116 734 113 736 112 736 111 736 112 736 113 735 116 733 119 730 123 727 128 723 134 718 140 712 147 706 155 698 164 690 172 681 182 670 191 659 201 648 212 635 222 622 232 607 243 592 254 577 264 561 275 544 285 526 295 508 305 490 314 471 324 452 332 432 341 413 349 393 356 373 363 353 370 333 376 314 381 295 386 276 390 257 394 239 398 221 401 204 403 188 405 172 407 157 408 143 409 130 409 118 410 107 410 96 409 87 409 79 409 72 408 66 408 62 408 58 407 56 407 55 408 55 408 56 409 58 410 61 411 66 413 72 416 78 419 86 422 94 426 104 431 114 437 125 443 137 449 149 457 162 465 176 474 190 483 204 493 219 504 234 516 249 528 265 541 280 554 296 568 311 582 327 597 342 612 357 627 372 643 386 659 400 676 413 692 426 708 439 725 451 741 462 757 473 773 483 789 492 804 501 819 509 833 517 847 524 860 530 873 535 885 540 896 545 906 548 915 551 923 554 930 556 936 558 942 560 946 561 948 561 950 562Z"></path><path d="M774 500 774 499 775 498 777 497 779 496 781 496 785 496 788 497 792 498 796 501 800 503 804 507 808 511 812 516 815 521 818 527 820 534 822 541 823 548 824 555 823 563 822 570 821 578 818 585 815 592 811 598 807 604 803 609 798 614 792 618 787 621 782 624 776 626 771 627 766 628 762 628 758 628 754 627 751 626 749 624 748 623 747 621 746 620 747 619 748 618 749 617 751 617 753 618 756 619 759 620 761 623 764 626 767 630 769 634 771 639 773 644 774 650 775 657 775 664 774 670 772 677 770 684 767 691 764 698 759 704 754 710 749 715 743 720 737 724 731 727 724 730 718 732 711 733 705 734 699 734 694 733 688 732 684 731 680 729 676 727 674 724 672 722 670 720 670 718 670 716 670 715 671 714 672 713 674 714 676 714 677 716 679 718 681 721 682 725 684 729 684 733 685 738 684 744 683 749 681 755 679 761 676 767 672 773 668 779 663 784 657 789 651 793 644 797 637 800 630 802 623 804 615 805 608 805 601 805 595 803 588 802 582 799 577 797 572 794 568 790 565 787 562 784 560 780 559 777 558 774 558 772 559 770 559 768 560 767 561 767 563 767 564 768 565 770 566 772 567 775 567 778 567 782 566 786 565 791 563 795 560 800 556 805 552 809 547 814 542 818 536 821 529 824 522 827 515 829 508 830 500 830 492 830 485 829 478 827 471 824 464 821 458 818 453 814 448 809 444 805 440 800 437 795 435 791 434 786 433 782 433 778 433 775 434 772 435 770 436 768 437 767 439 767 440 767 441 768 441 770 442 772 442 774 441 777 440 780 438 784 435 787 432 790 428 794 423 797 418 799 412 802 405 803 399 805 392 805 385 805 377 804 370 802 363 800 356 797 349 793 343 789 337 784 332 779 328 773 324 767 321 761 319 755 317 749 316 744 315 738 316 733 316 729 318 725 319 721 321 718 323 716 324 714 326 714 328 713 329 714 330 715 330 716 330 718 330 720 328 722 326 724 324 727 320 729 316 731 312 732 306 733 301 734 295 734 289 733 282 732 276 730 269 727 263 724 257 720 251 715 246 710 241 704 236 698 233 691 230 684 228 677 226 670 225 664 225 657 226 650 227 644 229 639 231 634 233 630 236 626 239 623 241 620 244 619 247 618 249 617 251 617 252 618 253 619 254 620 253 621 252 623 251 624 249 626 246 627 242 628 238 628 234 628 229 627 224 626 218 624 213 621 208 618 202 614 197 609 193 604 189 598 185 592 182 585 179 578 178 570 177 563 176 555 177 548 178 541 180 534 182 527 185 521 188 516 192 511 196 507 200 503 204 501 208 498 212 497 215 496 219 496 221 496 223 497 225 498 226 499 226 500 226 501 225 502 223 503 221 504 219 504 215 504 212 503 208 502 204 499 200 497 196 493 192 489 188 484 185 479 182 473 180 466 178 459 177 452 176 445 177 437 178 430 179 422 182 415 185 408 189 402 193 396 197 391 202 386 208 382 213 379 218 376 224 374 229 373 234 372 238 372 242 372 246 373 249 374 251 376 252 377 253 379 254 380 253 381 252 382 251 383 249 383 247 382 244 381 241 380 239 377 236 374 233 370 231 366 229 361 227 356 226 350 225 343 225 336 226 330 228 323 230 316 233 309 236 302 241 296 246 290 251 285 257 280 263 276 269 273 276 270 282 268 289 267 295 266 301 266 306 267 312 268 316 269 320 271 324 273 326 276 328 278 330 280 330 282 330 284 330 285 329 286 328 287 326 286 324 286 323 284 321 282 319 279 318 275 316 271 316 267 315 262 316 256 317 251 319 245 321 239 324 233 328 227 332 221 337 216 343 211 349 207 356 203 363 200 370 198 377 196 385 195 392 195 399 195 405 197 412 198 418 201 423 203 428 206 432 210 435 213 438 216 440 220 441 223 442 226 442 228 441 230 441 232 440 233 439 233 437 233 436 232 435 230 434 228 433 225 433 222 433 218 434 214 435 209 437 205 440 200 444 195 448 191 453 186 458 182 464 179 471 176 478 173 485 171 492 170 500 170 508 170 515 171 522 173 529 176 536 179 542 182 547 186 552 191 556 195 560 200 563 205 565 209 566 214 567 218 567 222 567 225 566 228 565 230 564 232 563 233 561 233 560 233 559 232 559 230 558 228 558 226 559 223 560 220 562 216 565 213 568 210 572 206 577 203 582 201 588 198 595 197 601 195 608 195 615 195 623 196 630 198 637 200 644 203 651 207 657 211 663 216 668 221 672 227 676 233 679 239 681 245 683 251 684 256 685 262 684 267 684 271 682 275 681 279 679 282 677 284 676 286 674 286 672 287 671 286 670 285 670 284 670 282 670 280 672 278 674 276 676 273 680 271 684 269 688 268 694 267 699 266 705 266 711 267 718 268 724 270 731 273 737 276 743 280 749 285 754 290 759 296 764 302 767 309 770 316 772 323 774 330 775 336 775 343 774 350 773 356 771 361 769 366 767 370 764 374 761 377 759 380 756 381 753 382 751 383 749 383 748 382 747 381 746 380 747 379 748 377 749 376 751 374 754 373 758 372 762 372 766 372 771 373 776 374 782 376 787 379 792 382 798 386 803 391 807 396 811 402 815 408 818 415 821 422 822 430 823 437 824 445 823 452 822 459 820 466 818 473 815 479 812 484 808 489 804 493 800 497 796 499 792 502 788 503 785 504 781 504 779 504 777 503 775 502 774 501Z"></path><path d="M759 500 759 499 760 498 761 497 764 496 766 496 769 496 773 497 776 499 780 501 784 503 788 506 791 510 795 515 798 520 801 526 803 532 805 538 806 545 806 552 806 559 805 566 803 573 801 580 798 587 794 593 791 598 786 603 781 608 776 612 771 615 766 617 761 619 756 620 752 621 748 621 744 621 740 620 738 619 736 617 734 616 733 615 733 613 733 612 734 611 735 611 737 611 739 611 742 612 744 614 747 616 750 619 752 622 755 627 757 631 758 637 759 642 760 648 760 655 759 661 757 668 755 674 753 681 749 687 745 693 741 698 736 703 730 708 724 712 718 715 712 718 706 719 700 721 694 721 688 721 683 721 678 720 674 718 670 716 667 714 664 712 662 710 661 708 660 706 660 704 661 703 662 702 663 702 664 702 666 703 668 704 669 706 671 709 672 712 674 716 674 720 674 725 674 730 673 736 672 741 669 747 666 753 663 758 659 764 654 769 648 773 643 777 636 781 630 784 623 786 616 787 609 788 602 788 596 788 589 787 583 785 578 783 573 781 569 778 565 775 562 771 559 768 557 765 556 762 555 759 555 757 555 755 556 753 557 752 558 752 559 752 561 753 562 755 563 757 563 760 563 763 563 767 562 771 561 775 559 779 556 784 553 788 549 793 545 797 539 800 534 804 528 807 521 809 514 811 507 812 500 812 493 812 486 811 479 809 472 807 466 804 461 800 455 797 451 793 447 788 444 784 441 779 439 775 438 771 437 767 437 763 437 760 437 757 438 755 439 753 441 752 442 752 443 752 444 753 445 755 445 757 445 759 444 762 443 765 441 768 438 771 435 775 431 778 427 781 422 783 417 785 411 787 404 788 398 788 391 788 384 787 377 786 370 784 364 781 357 777 352 773 346 769 341 764 337 758 334 753 331 747 328 741 327 736 326 730 326 725 326 720 326 716 328 712 329 709 331 706 332 704 334 703 336 702 337 702 338 702 339 703 340 704 340 706 339 708 338 710 336 712 333 714 330 716 326 718 322 720 317 721 312 721 306 721 300 721 294 719 288 718 282 715 276 712 270 708 264 703 259 698 255 693 251 687 247 681 245 674 243 668 241 661 240 655 240 648 241 642 242 637 243 631 245 627 248 622 250 619 253 616 256 614 258 612 261 611 263 611 265 611 266 611 267 612 267 613 267 615 266 616 264 617 262 619 260 620 256 621 252 621 248 621 244 620 239 619 234 617 229 615 224 612 219 608 214 603 209 598 206 593 202 587 199 580 197 573 195 566 194 559 194 552 194 545 195 538 197 532 199 526 202 520 205 515 209 510 212 506 216 503 220 501 224 499 227 497 231 496 234 496 236 496 239 497 240 498 241 499 241 500 241 501 240 502 239 503 236 504 234 504 231 504 227 503 224 501 220 499 216 497 212 494 209 490 205 485 202 480 199 474 197 468 195 462 194 455 194 448 194 441 195 434 197 427 199 420 202 413 206 407 209 402 214 397 219 392 224 388 229 385 234 383 239 381 244 380 248 379 252 379 256 379 260 380 262 381 264 383 266 384 267 385 267 387 267 388 266 389 265 389 263 389 261 389 258 388 256 386 253 384 250 381 248 378 245 373 243 369 242 363 241 358 240 352 240 345 241 339 243 332 245 326 247 319 251 313 255 307 259 302 264 297 270 292 276 288 282 285 288 282 294 281 300 279 306 279 312 279 317 279 322 280 326 282 330 284 333 286 336 288 338 290 339 292 340 294 340 296 339 297 338 298 337 298 336 298 334 297 332 296 331 294 329 291 328 288 326 284 326 280 326 275 326 270 327 264 328 259 331 253 334 247 337 242 341 236 346 231 352 227 357 223 364 219 370 216 377 214 384 213 391 212 398 212 404 212 411 213 417 215 422 217 427 219 431 222 435 225 438 229 441 232 443 235 444 238 445 241 445 243 445 245 444 247 443 248 442 248 441 248 439 247 438 245 437 243 437 240 437 237 437 233 438 229 439 225 441 221 444 216 447 212 451 207 455 203 461 200 466 196 472 193 479 191 486 189 493 188 500 188 507 188 514 189 521 191 528 193 534 196 539 200 545 203 549 207 553 212 556 216 559 221 561 225 562 229 563 233 563 237 563 240 563 243 562 245 561 247 559 248 558 248 557 248 556 247 555 245 555 243 555 241 556 238 557 235 559 232 562 229 565 225 569 222 573 219 578 217 583 215 589 213 596 212 602 212 609 212 616 213 623 214 630 216 636 219 643 223 648 227 654 231 659 236 663 242 666 247 669 253 672 259 673 264 674 270 674 275 674 280 674 284 672 288 671 291 669 294 668 296 666 297 664 298 663 298 662 298 661 297 660 296 660 294 661 292 662 290 664 288 667 286 670 284 674 282 678 280 683 279 688 279 694 279 700 279 706 281 712 282 718 285 724 288 730 292 736 297 741 302 745 307 749 313 753 319 755 326 757 332 759 339 760 345 760 352 759 358 758 363 757 369 755 373 752 378 750 381 747 384 744 386 742 388 739 389 737 389 735 389 734 389 733 388 733 387 733 385 734 384 736 383 738 381 740 380 744 379 748 379 752 379 756 380 761 381 766 383 771 385 776 388 781 392 786 397 791 402 794 407 798 413 801 420 803 427 805 434 806 441 806 448 806 455 805 462 803 468 801 474 798 480 795 485 791 490 788 494 784 497 780 499 776 501 773 503 769 504 766 504 764 504 761 503 760 502 759 501Z"></path><path d="M684 500 682 502 677 505 670 507 660 508 650 510 639 511 629 512 622 513 617 514 615 515 616 517 621 519 628 522 637 525 647 529 657 533 666 538 673 541 677 545 678 548 675 549 670 550 662 550 653 550 642 548 631 547 622 545 614 544 609 544 607 544 608 546 612 550 618 554 626 560 635 566 643 573 650 579 656 585 659 589 659 592 657 593 651 593 644 591 635 587 625 583 615 579 606 575 599 572 594 570 592 571 592 573 595 577 600 583 606 591 613 599 619 607 625 615 629 622 631 627 630 630 627 631 622 629 615 625 607 619 599 613 591 606 583 600 577 595 573 592 571 592 570 594 572 599 575 606 579 615 583 625 587 635 591 644 593 651 593 657 592 659 589 659 585 656 579 650 573 643 566 635 560 626 554 618 550 612 546 608 544 607 544 609 544 614 545 622 547 631 548 642 550 653 550 662 550 670 549 675 548 678 545 677 541 673 538 666 533 657 529 647 525 637 522 628 519 621 517 616 515 615 514 617 513 622 512 629 511 639 510 650 508 660 507 670 505 677 502 682 500 684 498 682 495 677 493 670 492 660 490 650 489 639 488 629 487 622 486 617 485 615 483 616 481 621 478 628 475 637 471 647 467 657 462 666 459 673 455 677 452 678 451 675 450 670 450 662 450 653 452 642 453 631 455 622 456 614 456 609 456 607 454 608 450 612 446 618 440 626 434 635 427 643 421 650 415 656 411 659 408 659 407 657 407 651 409 644 413 635 417 625 421 615 425 606 428 599 430 594 429 592 427 592 423 595 417 600 409 606 401 613 393 619 385 625 378 629 373 631 370 630 369 627 371 622 375 615 381 607 387 599 394 591 400 583 405 577 408 573 408 571 406 570 401 572 394 575 385 579 375 583 365 587 356 591 349 593 343 593 341 592 341 589 344 585 350 579 357 573 365 566 374 560 382 554 388 550 392 546 393 544 391 544 386 544 378 545 369 547 358 548 347 550 338 550 330 550 325 549 322 548 323 545 327 541 334 538 343 533 353 529 363 525 372 522 379 519 384 517 385 515 383 514 378 513 371 512 361 511 350 510 340 508 330 507 323 505 318 502 316 500 318 498 323 495 330 493 340 492 350 490 361 489 371 488 378 487 383 486 385 485 384 483 379 481 372 478 363 475 353 471 343 467 334 462 327 459 323 455 322 452 325 451 330 450 338 450 347 450 358 452 369 453 378 455 386 456 391 456 393 456 392 454 388 450 382 446 374 440 365 434 357 427 350 421 344 415 341 411 341 408 343 407 349 407 356 409 365 413 375 417 385 421 394 425 401 428 406 430 408 429 408 427 405 423 400 417 394 409 387 401 381 393 375 385 371 378 369 373 370 370 373 369 378 371 385 375 393 381 401 387 409 394 417 400 423 405 427 408 429 408 430 406 428 401 425 394 421 385 417 375 413 365 409 356 407 349 407 343 408 341 411 341 415 344 421 350 427 357 434 365 440 374 446 382 450 388 454 392 456 393 456 391 456 386 455 378 453 369 452 358 450 347 450 338 450 330 451 325 452 322 455 323 459 327 462 334 467 343 471 353 475 363 478 372 481 379 483 384 485 385 486 383 487 378 488 371 489 361 490 350 492 340 493 330 495 323 498 318 500 316 502 318 505 323 507 330 508 340 510 350 511 361 512 371 513 378 514 383 515 385 517 384 519 379 522 372 525 363 529 353 533 343 538 334 541 327 545 323 548 322 549 325 550 330 550 338 550 347 548 358 547 369 545 378 544 386 544 391 544 393 546 392 550 388 554 382 560 374 566 365 573 357 579 350 585 344 589 341 592 341 593 343 593 349 591 356 587 365 583 375 579 385 575 394 572 401 570 406 571 408 573 408 577 405 583 400 591 394 599 387 607 381 615 375 622 371 627 369 630 370 631 373 629 378 625 385 619 393 613 401 606 409 600 417 595 423 592 427 592 429 594 430 599 428 606 425 615 421 625 417 635 413 644 409 651 407 657 407 659 408 659 411 656 415 650 421 643 427 635 434 626 440 618 446 612 450 608 454 607 456 609 456 614 456 622 455 631 453 642 452 653 450 662 450 670 450 675 451 678 452 677 455 673 459 666 462 657 467 647 471 637 475 628 478 621 481 616 483 615 485 617 486 622 487 629 488 639 489 650 490 660 492 670 493 677 495 682 498Z"></path><path d="M616 500 618 502 622 503 630 505 639 507 650 510 660 513 669 516 677 519 681 521 682 524 680 526 675 528 668 529 658 529 647 529 636 529 627 529 619 529 614 529 612 530 613 532 617 535 624 539 633 543 642 548 651 554 659 559 666 564 669 568 670 570 668 572 662 572 654 571 645 569 635 566 624 563 615 561 608 558 603 557 600 558 601 560 604 564 610 569 617 576 625 583 632 591 639 598 644 604 646 609 646 612 643 613 638 612 631 609 622 604 613 599 604 593 595 588 589 584 584 582 582 582 582 584 584 589 588 595 593 604 599 613 604 622 609 631 612 638 613 643 612 646 609 646 604 644 598 639 591 632 583 625 576 617 569 610 564 604 560 601 558 600 557 603 558 608 561 615 563 624 566 635 569 645 571 654 572 662 572 668 570 670 568 669 564 666 559 659 554 651 548 642 543 633 539 624 535 617 532 613 530 612 529 614 529 619 529 627 529 636 529 647 529 658 529 668 528 675 526 680 524 682 521 681 519 677 516 669 513 660 510 650 507 639 505 630 503 622 502 618 500 616 498 618 497 622 495 630 493 639 490 650 487 660 484 669 481 677 479 681 476 682 474 680 472 675 471 668 471 658 471 647 471 636 471 627 471 619 471 614 470 612 468 613 465 617 461 624 457 633 452 642 446 651 441 659 436 666 432 669 430 670 428 668 428 662 429 654 431 645 434 635 437 624 439 615 442 608 443 603 442 600 440 601 436 604 431 610 424 617 417 625 409 632 402 639 396 644 391 646 388 646 387 643 388 638 391 631 396 622 401 613 407 604 412 595 416 589 418 584 418 582 416 582 411 584 405 588 396 593 387 599 378 604 369 609 362 612 357 613 354 612 354 609 356 604 361 598 368 591 375 583 383 576 390 569 396 564 399 560 400 558 397 557 392 558 385 561 376 563 365 566 355 569 346 571 338 572 332 572 330 570 331 568 334 564 341 559 349 554 358 548 367 543 376 539 383 535 387 532 388 530 386 529 381 529 373 529 364 529 353 529 342 529 332 529 325 528 320 526 318 524 319 521 323 519 331 516 340 513 350 510 361 507 370 505 378 503 382 502 384 500 382 498 378 497 370 495 361 493 350 490 340 487 331 484 323 481 319 479 318 476 320 474 325 472 332 471 342 471 353 471 364 471 373 471 381 471 386 471 388 470 387 468 383 465 376 461 367 457 358 452 349 446 341 441 334 436 331 432 330 430 332 428 338 428 346 429 355 431 365 434 376 437 385 439 392 442 397 443 400 442 399 440 396 436 390 431 383 424 375 417 368 409 361 402 356 396 354 391 354 388 357 387 362 388 369 391 378 396 387 401 396 407 405 412 411 416 416 418 418 418 418 416 416 411 412 405 407 396 401 387 396 378 391 369 388 362 387 357 388 354 391 354 396 356 402 361 409 368 417 375 424 383 431 390 436 396 440 399 442 400 443 397 442 392 439 385 437 376 434 365 431 355 429 346 428 338 428 332 430 330 432 331 436 334 441 341 446 349 452 358 457 367 461 376 465 383 468 387 470 388 471 386 471 381 471 373 471 364 471 353 471 342 471 332 472 325 474 320 476 318 479 319 481 323 484 331 487 340 490 350 493 361 495 370 497 378 498 382 500 384 502 382 503 378 505 370 507 361 510 350 513 340 516 331 519 323 521 319 524 318 526 320 528 325 529 332 529 342 529 353 529 364 529 373 529 381 529 386 530 388 532 387 535 383 539 376 543 367 548 358 554 349 559 341 564 334 568 331 570 330 572 332 572 338 571 346 569 355 566 365 563 376 561 385 558 392 557 397 558 400 560 399 564 396 569 390 576 383 583 375 591 368 598 361 604 356 609 354 612 354 613 357 612 362 609 369 604 378 599 387 593 396 588 405 584 411 582 416 582 418 584 418 589 416 595 412 604 407 613 401 622 396 631 391 638 388 643 387 646 388 646 391 644 396 639 402 632 409 625 417 617 424 610 431 604 436 601 440 600 442 603 443 608 442 615 439 624 437 635 434 645 431 654 429 662 428 668 428 670 430 669 432 666 436 659 441 651 446 642 452 633 457 624 461 617 465 613 468 612 470 614 471 619 471 627 471 636 471 647 471 658 471 668 471 675 472 680 474 682 476 681 479 677 481 669 484 660 487 650 490 639 493 630 495 622 497 618 498Z"></path><path d="M588 500 587 502 586 504 583 505 579 507 575 508 571 509 566 510 561 510 557 511 554 512 552 512 551 513 550 514 551 515 553 517 555 519 558 522 562 525 566 528 569 531 572 534 574 537 576 540 577 542 576 544 575 545 572 546 569 546 565 545 561 544 557 543 552 541 548 540 544 538 541 537 539 536 537 536 536 537 536 539 537 541 538 544 540 548 541 552 543 557 544 561 545 565 546 569 546 572 545 575 544 576 542 577 540 576 537 574 534 572 531 569 528 566 525 562 522 558 519 555 517 553 515 551 514 550 513 551 512 552 512 554 511 557 510 561 510 566 509 571 508 575 507 579 505 583 504 586 502 587 500 588 498 587 496 586 495 583 493 579 492 575 491 571 490 566 490 561 489 557 488 554 488 552 487 551 486 550 485 551 483 553 481 555 478 558 475 562 472 566 469 569 466 572 463 574 460 576 458 577 456 576 455 575 454 572 454 569 455 565 456 561 457 557 459 552 460 548 462 544 463 541 464 539 464 537 463 536 461 536 459 537 456 538 452 540 448 541 443 543 439 544 435 545 431 546 428 546 425 545 424 544 423 542 424 540 426 537 428 534 431 531 434 528 438 525 442 522 445 519 447 517 449 515 450 514 449 513 448 512 446 512 443 511 439 510 434 510 429 509 425 508 421 507 417 505 414 504 413 502 412 500 413 498 414 496 417 495 421 493 425 492 429 491 434 490 439 490 443 489 446 488 448 488 449 487 450 486 449 485 447 483 445 481 442 478 438 475 434 472 431 469 428 466 426 463 424 460 423 458 424 456 425 455 428 454 431 454 435 455 439 456 443 457 448 459 452 460 456 462 459 463 461 464 463 464 464 463 464 461 463 459 462 456 460 452 459 448 457 443 456 439 455 435 454 431 454 428 455 425 456 424 458 423 460 424 463 426 466 428 469 431 472 434 475 438 478 442 481 445 483 447 485 449 486 450 487 449 488 448 488 446 489 443 490 439 490 434 491 429 492 425 493 421 495 417 496 414 498 413 500 412 502 413 504 414 505 417 507 421 508 425 509 429 510 434 510 439 511 443 512 446 512 448 513 449 514 450 515 449 517 447 519 445 522 442 525 438 528 434 531 431 534 428 537 426 540 424 542 423 544 424 545 425 546 428 546 431 545 435 544 439 543 443 541 448 540 452 538 456 537 459 536 461 536 463 537 464 539 464 541 463 544 462 548 460 552 459 557 457 561 456 565 455 569 454 572 454 575 455 576 456 577 458 576 460 574 463 572 466 569 469 566 472 562 475 558 478 555 481 553 483 551 485 550 486 551 487 552 488 554 488 557 489 561 490 566 490 571 491 575 492 579 493 583 495 586 496 587 498Z"></path><circle cx="500" cy="500" r="496"></circle><circle cx="500" cy="500" r="488"></circle><circle cx="500" cy="500" r="352"></circle><circle cx="500" cy="500" r="190"></circle></g></svg>
+<svg class="mkt" viewBox="0 0 760 440" aria-hidden="true" focusable="false"><g style="fill: none; stroke: var(--seal); stroke-width: 1"><path d="M0 40H760M0 80H760M0 120H760M0 160H760M0 200H760M0 240H760M0 280H760M0 320H760M0 360H760M0 400H760M0 0V440M76 0V440M152 0V440M228 0V440M304 0V440M380 0V440M456 0V440M532 0V440M608 0V440M684 0V440" style="opacity: 0.35; stroke-dasharray: 2 6"></path><path d="M30 268V230"></path><rect x="23" y="247" width="14" height="13" style="fill: var(--seal)"></rect><path d="M57 261V206"></path><rect x="50" y="217" width="14" height="29" style="fill: var(--seal)"></rect><path d="M84 231V180"></path><rect x="77" y="187" width="14" height="30" style="fill: var(--seal)"></rect><path d="M111 194V173"></path><rect x="104" y="181" width="14" height="6" style="fill: var(--seal)"></rect><path d="M138 200V166"></path><rect x="131" y="174" width="14" height="7" style="fill: var(--seal)"></rect><path d="M165 190V133"></path><rect x="158" y="154" width="14" height="20" style="fill: var(--seal)"></rect><path d="M192 170V133"></path><rect x="185" y="154" width="14" height="3" style="fill: none"></rect><path d="M219 177V116"></path><rect x="212" y="126" width="14" height="31" style="fill: var(--seal)"></rect><path d="M246 134V90"></path><rect x="239" y="101" width="14" height="25" style="fill: var(--seal)"></rect><path d="M273 129V86"></path><rect x="266" y="101" width="14" height="18" style="fill: none"></rect><path d="M300 139V105"></path><rect x="293" y="120" width="14" height="7" style="fill: none"></rect><path d="M327 134V87"></path><rect x="320" y="97" width="14" height="30" style="fill: var(--seal)"></rect><path d="M354 119V86"></path><rect x="347" y="97" width="14" height="10" style="fill: none"></rect><path d="M381 123V95"></path><rect x="374" y="106" width="14" height="3" style="fill: none"></rect><path d="M408 144V100"></path><rect x="401" y="110" width="14" height="17" style="fill: none"></rect><path d="M435 144V106"></path><rect x="428" y="126" width="14" height="3" style="fill: none"></rect><path d="M462 152V108"></path><rect x="455" y="129" width="14" height="13" style="fill: none"></rect><path d="M489 155V97"></path><rect x="482" y="115" width="14" height="26" style="fill: var(--seal)"></rect><path d="M516 129V85"></path><rect x="509" y="91" width="14" height="24" style="fill: var(--seal)"></rect><path d="M543 118V76"></path><rect x="536" y="91" width="14" height="9" style="fill: none"></rect><path d="M570 133V83"></path><rect x="563" y="100" width="14" height="22" style="fill: none"></rect><path d="M597 141V109"></path><rect x="590" y="122" width="14" height="4" style="fill: none"></rect><path d="M624 167V112"></path><rect x="617" y="126" width="14" height="20" style="fill: none"></rect><path d="M651 161V129"></path><rect x="644" y="146" width="14" height="9" style="fill: none"></rect><path d="M678 184V135"></path><rect x="671" y="154" width="14" height="7" style="fill: none"></rect><path d="M705 174V129"></path><rect x="698" y="146" width="14" height="16" style="fill: var(--seal)"></rect><path d="M30 253 L57 232 L84 202 L111 184 L138 177 L165 164 L192 156 L219 142 L246 114 L273 111 L300 123 L327 112 L354 101 L381 108 L408 118 L435 128 L462 136 L489 129 L516 103 L543 96 L570 111 L597 124 L624 136 L651 150 L678 158 L705 154" style="stroke-width: 1.6"></path></g></svg>
+<div style="position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; padding: clamp(64px, 10vw, 112px) 24px 40px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px">
+<div class="label" style="color: var(--inv-muted)">Addis Ababa · New York</div>
+<h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 8vw, 96px); line-height: 0.98; font-weight: 700; letter-spacing: -0.01em; max-width: 980px">Trust in Ethiopia’s markets.</h1>
+<p style="margin: 0; font-size: clamp(18px, 2.2vw, 22px); line-height: 1.55; color: var(--inv-ink-2); max-width: 720px">We let the world check, sign and settle with Ethiopian companies, and help them reach global capital.</p>
+</div>
+<div style="position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; padding: 0 24px clamp(56px, 8vw, 104px)">
+<div class="wide">
+<svg viewBox="0 0 1200 400" width="100%" role="img" aria-label="Three two-way connections, prove, seal and settle, link Ethiopian banks, companies and funds with the world">
+<text x="130" y="28" text-anchor="middle" style="fill: var(--inv-muted); font-family: 'IM Fell English SC', serif; font-size: 19px; letter-spacing: 1px">ETHIOPIA</text>
+<g style="fill: var(--inv-2); stroke: var(--inv-stroke); stroke-width: 1.5">
+<rect x="40" y="60" width="180" height="70" rx="16"></rect><rect x="40" y="165" width="180" height="70" rx="16"></rect><rect x="40" y="270" width="180" height="70" rx="16"></rect>
+</g>
+<g style="fill: none; stroke: var(--inv-ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round">
+<path d="M66 112v-22l14-8 14 8v22M66 112h28M74 96h12"></path><path d="M68 217v-30h24v30M73 194h4M83 194h4M73 204h4M83 204h4"></path><path d="M66 322v-20l10-6 10 6 10-6v26M66 322h30"></path>
+</g>
+<g style="fill: var(--inv-ink); font-family: 'EB Garamond', serif; font-size: 19px; font-weight: 600"><text x="112" y="102">Banks</text><text x="112" y="207">Companies</text><text x="112" y="312">Funds</text></g>
+<text x="1060" y="28" text-anchor="middle" style="fill: var(--inv-muted); font-family: 'IM Fell English SC', serif; font-size: 19px; letter-spacing: 1px">THE WORLD</text>
+<g style="fill: none; stroke: var(--inv-ink); stroke-width: 2"><circle cx="1060" cy="200" r="118"></circle><ellipse cx="1060" cy="200" rx="50" ry="118"></ellipse><path d="M942 200h236M960 140h200M960 260h200"></path></g>
+<g style="fill: none; stroke-width: 3; stroke-linecap: round; opacity: 0.28">
+<path d="M222 95 C520 95 660 130 942 150" style="stroke: var(--prove)"></path>
+<path d="M222 200 L942 200" style="stroke: var(--seal)"></path>
+<path d="M222 305 C520 305 660 270 942 250" style="stroke: var(--settle)"></path>
+</g>
+<g transform="translate(0 -7)" style="fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 22">
+<path class="flow" d="M222 95 C520 95 660 130 942 150" style="stroke: var(--prove)"></path>
+<path class="flow" d="M222 200 L942 200" style="stroke: var(--seal)"></path>
+<path class="flow" d="M222 305 C520 305 660 270 942 250" style="stroke: var(--settle)"></path>
+</g>
+<g transform="translate(0 7)" style="fill: none; stroke: var(--inv-ink); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 22; opacity: 0.7">
+<path class="flowr" d="M222 95 C520 95 660 130 942 150"></path>
+<path class="flowr" d="M222 200 L942 200"></path>
+<path class="flowr" d="M222 305 C520 305 660 270 942 250"></path>
+</g>
+<g style="font-family: 'EB Garamond', serif; font-size: 19px">
+<rect x="450" y="86" width="270" height="50" rx="25" style="fill: var(--inv); stroke: var(--prove); stroke-width: 1.5"></rect>
+<text x="585" y="117" text-anchor="middle" style="fill: var(--inv-ink)"><tspan style="font-weight: 700; fill: var(--prove)">Prove</tspan> who you are</text>
+<rect x="450" y="175" width="270" height="50" rx="25" style="fill: var(--inv); stroke: var(--seal); stroke-width: 1.5"></rect>
+<text x="585" y="206" text-anchor="middle" style="fill: var(--inv-ink)"><tspan style="font-weight: 700; fill: var(--seal)">Seal</tspan> what you send</text>
+<rect x="450" y="264" width="270" height="50" rx="25" style="fill: var(--inv); stroke: var(--settle); stroke-width: 1.5"></rect>
+<text x="585" y="295" text-anchor="middle" style="fill: var(--inv-ink)"><tspan style="font-weight: 700; fill: var(--settle)">Settle</tspan> where money goes</text>
+</g>
+</svg>
+</div>
+<div class="narrow">
+<svg viewBox="0 0 360 580" width="100%" role="img" aria-label="Three two-way connections, prove, seal and settle, link Ethiopian banks, companies and funds with the world">
+<text x="180" y="20" text-anchor="middle" style="fill: var(--inv-muted); font-family: 'IM Fell English SC', serif; font-size: 17px; letter-spacing: 1px">ETHIOPIA</text>
+<g style="fill: var(--inv-2); stroke: var(--inv-stroke); stroke-width: 1.5"><rect x="8" y="36" width="108" height="56" rx="14"></rect><rect x="126" y="36" width="108" height="56" rx="14"></rect><rect x="244" y="36" width="108" height="56" rx="14"></rect></g>
+<g text-anchor="middle" style="fill: var(--inv-ink); font-family: 'EB Garamond', serif; font-size: 16px; font-weight: 600"><text x="62" y="70">Banks</text><text x="180" y="70">Companies</text><text x="298" y="70">Funds</text></g>
+<g style="fill: none; stroke-width: 3; stroke-linecap: round; opacity: 0.28">
+<path d="M62 92 C62 260 150 300 150 420" style="stroke: var(--prove)"></path><path d="M180 92 L180 420" style="stroke: var(--seal)"></path><path d="M298 92 C298 260 210 300 210 420" style="stroke: var(--settle)"></path>
+</g>
+<g transform="translate(-6 0)" style="fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 22">
+<path class="flow" d="M62 92 C62 260 150 300 150 420" style="stroke: var(--prove)"></path><path class="flow" d="M180 92 L180 420" style="stroke: var(--seal)"></path><path class="flow" d="M298 92 C298 260 210 300 210 420" style="stroke: var(--settle)"></path>
+</g>
+<g transform="translate(6 0)" style="fill: none; stroke: var(--inv-ink); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 22; opacity: 0.7">
+<path class="flowr" d="M62 92 C62 260 150 300 150 420"></path><path class="flowr" d="M180 92 L180 420"></path><path class="flowr" d="M298 92 C298 260 210 300 210 420"></path>
+</g>
+<g style="font-family: 'EB Garamond', serif; font-size: 16px; font-weight: 700" text-anchor="middle">
+<rect x="30" y="222" width="92" height="38" rx="19" style="fill: var(--inv); stroke: var(--prove); stroke-width: 1.5"></rect><text x="76" y="246" style="fill: var(--prove)">Prove</text>
+<rect x="134" y="222" width="92" height="38" rx="19" style="fill: var(--inv); stroke: var(--seal); stroke-width: 1.5"></rect><text x="180" y="246" style="fill: var(--seal)">Seal</text>
+<rect x="238" y="222" width="92" height="38" rx="19" style="fill: var(--inv); stroke: var(--settle); stroke-width: 1.5"></rect><text x="284" y="246" style="fill: var(--settle)">Settle</text>
+</g>
+<g style="fill: none; stroke: var(--inv-ink); stroke-width: 2"><circle cx="180" cy="490" r="68"></circle><ellipse cx="180" cy="490" rx="28" ry="68"></ellipse><path d="M112 490h136M122 456h116M122 524h116"></path></g>
+<text x="180" y="576" text-anchor="middle" style="fill: var(--inv-muted); font-family: 'IM Fell English SC', serif; font-size: 17px; letter-spacing: 1px">THE WORLD</text>
+</svg>
+</div>
+</div>
 </section>
 
-<!-- WHO -->
-<section class="sec" id="who">
-  <div class="wrap">
-    <span class="eyebrow rv">Who we work with</span>
-    <div class="who rv">
-      <div class="c"><h3>Organizations</h3><p>Prove who you are to partners, regulators, and networks, and open the door to trade across borders.</p></div>
-      <div class="c"><h3>Investors &amp; markets</h3><p>Move capital with counterparties whose identity you can verify, not simply trust.</p></div>
-      <div class="c"><h3>Builders &amp; founders</h3><p>Launch on identity and trust rails that already meet the standards, so you ship sooner.</p></div>
-      <div class="c"><h3>Governments &amp; institutions</h3><p>Stand up sovereign trust infrastructure that you own and control end to end.</p></div>
-    </div>
-  </div>
+<!-- TRUST -->
+<section style="max-width: 1240px; margin: 0 auto; padding: clamp(72px, 10vw, 120px) 24px 32px; display: flex; flex-wrap: wrap; gap: 24px 56px; align-items: center">
+<h2 style="margin: 0; flex: 1 1 360px; font-family: 'Cormorant Garamond', serif; font-size: clamp(110px, 18vw, 230px); line-height: 0.8; font-weight: 700; letter-spacing: -0.03em">Trust<span style="color: var(--accent)">.</span></h2>
+<div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 18px">
+<p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.4vw, 40px); line-height: 1.15; font-weight: 700">Every market trades on it first.</p>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: var(--ink-2)">We make it checkable in seconds, anywhere. Every venture we build rests on it.</p>
+</div>
 </section>
 
-<!-- HELP -->
-<section class="sec" id="help">
-  <div class="wrap">
-    <span class="eyebrow rv">How we help you succeed</span>
-    <h2 class="h2big rv">Turn trust from a blocker into your advantage.</h2>
-    <div class="help">
-      <div class="item rv"><span class="dot"></span><div>
-        <h3>Establish trusted identity</h3>
-        <p>We give your organization a verifiable identity, built on global standards like the Legal Entity Identifier, public key infrastructure, and verifiable credentials, that counterparties, regulators, and networks recognize on sight.</p>
-      </div></div>
-      <div class="item rv"><span class="dot"></span><div>
-        <h3>Satisfy regulators while keeping your speed</h3>
-        <p>We design systems that meet your reporting and compliance duties while leaving room to innovate, so proving trust never becomes the thing that holds you back.</p>
-      </div></div>
-      <div class="item rv"><span class="dot"></span><div>
-        <h3>Reach capital and new markets</h3>
-        <p>We connect you to payments, securities, trade finance, and FX, with infrastructure built for confidence across borders, so verified counterparties can transact with you anywhere.</p>
-      </div></div>
-      <div class="item rv"><span class="dot"></span><div>
-        <h3>Go from idea to working system</h3>
-        <p>We do not just advise. We prototype, build, and operate real ventures, so you adopt infrastructure that is already proven, not a slide deck.</p>
-      </div></div>
-    </div>
-  </div>
+<!-- TODAY vs WITH US -->
+<section style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8vw, 80px) 24px clamp(72px, 10vw, 120px); display: flex; flex-direction: column; gap: 40px">
+<h2 style="margin: 0; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 5.4vw, 60px); line-height: 1.02; font-weight: 700">From weeks of paperwork to one check.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px">
+<div style="background: var(--card); border: 3px double var(--outline-2); border-radius: 24px; padding: clamp(22px, 3vw, 36px); display: flex; flex-direction: column; gap: 16px">
+<div class="label" style="color: var(--muted)">Today</div>
+<svg viewBox="0 0 520 220" width="100%" role="img" aria-label="Today a document goes from a company through courier, stamp, notary and bank check before it reaches an investor">
+<path d="M56 165 C110 165 110 62 170 62 S240 165 290 156 S340 52 390 62 S450 175 464 118" style="fill: none; stroke: var(--outline); stroke-width: 3; stroke-dasharray: 8 8"></path>
+<g style="fill: var(--stop); stroke: var(--muted); stroke-width: 2"><circle cx="56" cy="165" r="12"></circle><circle cx="170" cy="62" r="12"></circle><circle cx="290" cy="156" r="12"></circle><circle cx="390" cy="62" r="12"></circle><circle cx="464" cy="118" r="12"></circle></g>
+<g text-anchor="middle" style="fill: var(--ink-2); font-family: 'EB Garamond', serif; font-size: 19px"><text x="56" y="204">Company</text><text x="170" y="36">Courier</text><text x="290" y="196">Stamp</text><text x="390" y="36">Notary</text><text x="458" y="158">Bank check</text></g>
+</svg>
+<div style="color: var(--ink-2)">Paper and stamps, repeated for every bank.</div>
+</div>
+<div style="position: relative; isolation: isolate; overflow: hidden; background: var(--inv); color: var(--inv-ink); border: 3px double var(--inv-stroke); border-radius: 24px; padding: clamp(22px, 3vw, 36px); display: flex; flex-direction: column; gap: 16px">
+<svg class="gilmini" viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g class="gilspin" style="fill: none; stroke: var(--settle); stroke-width: 2; opacity: 0.16"><path d="M970 500 968 493 963 487 954 482 942 477 926 473 908 471 887 471 863 472 837 475 809 481 780 488 749 498 718 510 686 525 654 542 623 560 591 581 561 603 533 627 505 652 480 678 457 705 436 731 417 758 401 785 387 810 376 835 368 858 362 879 358 898 357 914 357 928 360 939 364 947 370 951 376 952 383 950 391 944 399 935 407 922 414 906 421 886 426 864 431 839 433 811 435 782 434 750 431 717 427 682 420 647 411 612 401 576 388 541 373 507 357 473 340 441 321 411 301 383 280 357 260 333 239 312 218 294 198 279 179 267 161 257 145 250 131 246 119 245 110 246 103 250 99 255 99 262 101 271 107 281 116 292 129 303 145 315 164 326 186 337 211 348 238 357 268 366 300 373 334 378 370 382 406 384 443 384 480 382 517 378 554 372 590 364 625 355 658 344 689 332 718 318 745 304 769 289 790 274 808 259 823 245 834 231 843 218 848 206 851 197 850 189 847 183 841 179 832 179 822 181 809 186 795 194 780 205 764 219 747 237 730 257 714 280 697 306 681 334 666 365 653 397 641 431 630 466 621 502 614 539 609 576 606 613 605 649 606 684 609 718 613 750 619 781 627 808 635 833 644 856 654 875 664 891 674 904 684 913 693 919 702 922 708 921 714 917 717 910 719 900 718 888 715 873 709 856 701 837 689 816 675 795 659 772 639 749 617 726 592 704 566 682 537 660 506 640 474 621 441 604 407 588 372 575 338 563 304 554 270 547 237 542 206 539 177 537 150 538 125 540 103 544 84 549 68 555 55 562 46 569 40 576 38 583 39 590 44 595 52 600 63 603 78 605 95 604 115 602 137 597 161 590 187 581 214 569 242 555 270 538 299 519 328 498 356 475 383 450 409 423 433 395 456 365 478 336 497 305 513 275 528 245 540 215 550 187 557 160 563 135 566 112 567 92 566 74 563 59 559 47 554 39 548 34 542 32 535 34 528 40 522 49 516 61 512 77 508 96 506 117 505 142 507 168 510 197 516 227 523 259 533 292 545 325 559 358 575 391 593 424 613 456 635 486 657 515 681 542 706 568 730 590 755 611 780 629 804 644 827 657 849 667 869 674 887 679 903 681 916 681 926 679 934 676 938 670 939 663 937 656 931 647 921 639 908 630 892 621 873 613 850 605 825 599 797 594 767 590 735 588 702 588 667 590 631 594 595 600 558 608 522 618 487 630 452 643 419 658 388 674 358 692 331 710 306 729 284 747 265 766 248 785 235 802 225 819 217 834 213 847 211 858 212 867 215 873 221 877 228 878 237 875 248 869 260 860 273 848 286 833 299 814 312 792 325 768 337 741 348 711 357 679 365 646 372 611 377 574 380 537 381 500 380 463 377 426 372 389 365 354 357 321 348 289 337 259 325 232 312 208 299 186 286 167 273 152 260 140 248 131 237 125 228 122 221 123 215 127 212 133 211 142 213 153 217 166 225 181 235 198 248 215 265 234 284 253 306 271 331 290 358 308 388 326 419 342 452 357 487 370 522 382 558 392 595 400 631 406 667 410 702 412 735 412 767 410 797 406 825 401 850 395 873 387 892 379 908 370 921 361 931 353 937 344 939 337 938 330 934 324 926 321 916 319 903 319 887 321 869 326 849 333 827 343 804 356 780 371 755 389 730 410 706 432 681 458 657 485 635 514 613 544 593 576 575 609 559 642 545 675 533 708 523 741 516 773 510 803 507 832 505 858 506 883 508 904 512 923 516 939 522 951 528 960 535 966 542 968 548 966 554 961 559 953 563 941 566 926 567 908 566 888 563 865 557 840 550 813 540 785 528 755 513 725 497 695 478 664 456 635 433 605 409 577 383 550 356 525 328 502 299 481 270 462 242 445 214 431 187 419 161 410 137 403 115 398 95 396 78 395 63 397 52 400 44 405 39 410 38 417 40 424 46 431 55 438 68 445 84 451 103 456 125 460 150 462 177 463 206 461 237 458 270 453 304 446 338 437 372 425 407 412 441 396 474 379 506 360 537 340 566 318 592 296 617 274 639 251 659 228 675 205 689 184 701 163 709 144 715 127 718 112 719 100 717 90 714 83 708 79 702 78 693 81 684 87 674 96 664 109 654 125 644 144 635 167 627 192 619 219 613 250 609 282 606 316 605 351 606 387 609 424 614 461 621 498 630 534 641 569 653 603 666 635 681 666 697 694 714 720 730 743 747 763 764 781 780 795 795 806 809 814 822 819 832 821 841 821 847 817 850 811 851 803 848 794 843 782 834 769 823 755 808 741 790 726 769 711 745 696 718 682 689 668 658 656 625 645 590 636 554 628 517 622 480 618 443 616 406 616 370 618 334 622 300 627 268 634 238 643 211 652 186 663 164 674 145 685 129 697 116 708 107 719 101 729 99 738 99 745 103 750 110 754 119 755 131 754 145 750 161 743 179 733 198 721 218 706 239 688 260 667 280 643 301 617 321 589 340 559 357 527 373 493 388 459 401 424 411 388 420 353 427 318 431 283 434 250 435 218 433 189 431 161 426 136 421 114 414 94 407 78 399 65 391 56 383 50 376 48 370 49 364 53 360 61 357 72 357 86 358 102 362 121 368 142 376 165 387 190 401 215 417 242 436 269 457 295 480 322 505 348 533 373 561 397 591 419 623 440 654 458 686 475 718 490 749 502 780 512 809 519 837 525 863 528 887 529 908 529 926 527 942 523 954 518 963 513 968 507Z"></path><path d="M923 579 921 581 917 582 910 583 900 585 888 586 873 588 857 590 838 594 817 598 794 603 770 609 744 616 718 624 690 634 663 644 635 656 607 669 579 683 551 697 525 712 499 728 475 744 452 760 430 776 410 792 392 807 376 822 361 835 349 848 338 859 329 868 321 875 316 881 312 884 309 885 307 884 307 880 308 874 309 865 310 853 313 840 315 823 317 805 319 784 320 762 321 737 322 711 321 684 320 655 317 626 314 596 310 565 305 535 298 504 291 475 283 445 275 417 266 390 256 365 246 341 237 318 227 298 218 280 209 264 202 249 195 238 189 228 185 220 183 215 182 211 183 210 186 210 191 212 199 215 209 219 221 225 235 231 252 238 270 246 291 253 314 261 338 268 364 276 392 282 420 288 450 294 480 298 511 302 542 304 573 306 603 307 633 306 661 305 689 303 715 301 740 298 763 294 783 290 802 286 818 283 832 279 844 276 853 274 860 273 864 273 866 274 865 276 863 280 858 286 852 294 844 303 834 315 823 328 811 344 798 361 785 380 771 401 757 424 743 448 729 474 716 500 703 528 691 556 680 585 670 614 660 644 652 672 645 701 639 728 634 754 630 779 627 802 625 824 623 844 622 861 622 876 621 889 621 899 620 906 619 911 618 913 616 913 613 910 609 905 604 897 597 888 589 876 580 862 569 847 556 830 542 812 526 793 508 774 489 754 469 734 447 714 424 694 401 674 376 655 351 637 326 620 300 604 275 589 250 575 226 563 203 552 181 542 160 534 141 526 124 520 109 515 96 511 86 508 78 505 73 503 70 501 70 499 73 497 79 495 87 492 97 489 110 484 125 479 142 473 161 466 182 457 204 448 227 436 251 424 276 410 302 395 327 379 352 362 377 344 402 325 426 305 448 285 470 265 490 245 509 225 527 205 543 187 557 169 569 152 580 137 590 123 598 112 604 102 609 95 613 89 616 87 618 87 619 89 620 94 621 102 621 112 622 125 622 140 623 158 625 177 627 199 630 222 634 247 639 274 645 301 653 329 661 358 670 387 681 416 692 445 704 474 717 501 730 528 744 553 758 577 772 600 786 621 799 640 812 657 824 673 835 686 844 697 852 707 859 714 863 720 865 724 866 726 864 727 859 727 852 726 843 724 831 721 817 717 801 713 782 710 761 706 738 702 714 699 688 697 660 695 631 694 601 693 571 694 540 696 509 699 479 702 448 707 419 712 390 718 363 725 337 732 312 740 290 747 269 755 250 762 234 769 220 775 208 781 198 785 191 788 186 790 183 790 182 788 183 785 185 779 190 772 195 762 202 750 210 736 219 719 228 701 237 680 247 658 257 634 266 608 275 581 284 553 292 524 299 494 305 464 310 433 314 403 318 373 320 343 321 315 322 287 321 261 320 237 319 214 317 194 315 176 312 159 310 146 309 135 307 126 307 120 307 116 309 115 312 116 316 120 322 125 329 133 338 142 349 153 362 165 377 179 393 194 412 209 432 225 453 241 476 257 501 273 526 289 553 304 580 318 608 332 636 345 664 356 692 367 719 376 746 384 771 391 795 398 818 402 839 406 858 410 874 412 889 414 901 416 910 417 917 418 921 419 923 421 922 423 918 426 912 430 903 435 892 440 879 448 864 456 848 466 830 477 810 490 790 505 768 521 747 538 725 557 703 577 681 598 659 620 638 643 618 667 599 690 581 714 564 738 548 761 534 784 521 806 510 827 500 846 491 864 484 880 478 894 473 906 469 915 466 922 463 926 461 928 459 927 457 924 455 917 453 909 451 897 448 884 444 868 439 849 433 829 427 808 419 784 409 760 399 734 387 708 374 682 360 655 345 628 329 601 313 575 295 550 277 526 259 503 241 481 223 461 205 442 188 425 172 409 157 396 143 384 131 374 120 365 112 358 105 353 101 349 99 346 100 344 103 343 109 343 117 343 128 344 141 344 157 345 175 346 195 346 217 345 241 344 267 342 294 340 322 336 351 331 381 325 410 318 440 311 470 302 499 292 528 282 555 271 582 259 607 248 630 236 652 224 672 212 689 201 705 191 719 182 731 174 740 167 748 162 754 158 757 157 759 157 760 160 759 165 757 172 753 181 749 193 744 208 739 224 733 243 728 264 722 287 717 311 712 338 708 365 704 394 701 424 700 455 699 485 699 516 700 547 702 578 704 607 708 636 712 664 717 690 722 715 728 737 734 758 739 777 745 793 749 807 754 819 757 829 759 836 760 840 759 843 757 843 753 842 747 838 740 833 730 826 718 818 704 808 688 798 670 787 650 775 629 764 605 752 580 740 554 729 526 718 498 707 468 698 439 689 409 681 379 674 349 669 320 664 292 660 265 657 240 656 216 655 194 654 174 654 156 655 140 656 127 656 116 657 108 657 103 657 100 656 99 654 101 651 105 647 112 641 121 634 131 626 144 616 157 604 173 590 189 574 206 557 224 538 242 518 260 496 278 473 296 448 314 423 330 397 346 371 361 344 375 317 388 290 400 264 410 239 419 214 427 191 434 169 439 149 444 131 448 116 451 102 453 91 455 82 457 76 459 73 461 72 463 74 466 78 469 86 473 95 478 107 484 121 492 137 500 155 510 174 522 195 535 217 549 240 565 263 582 287 600 311 619 335 639 358 660 381 682 403 704 424 726 444 748 463 770 480 791 496 811 510 831 523 849 535 865 544 880 553 893 560 904 566 912 570 918 574 922 577Z"></path><circle cx="500" cy="500" r="490"></circle><circle cx="500" cy="500" r="200"></circle></g></svg>
+<div class="label" style="color: var(--settle)">With Synestate</div>
+<svg viewBox="0 0 520 220" width="100%" role="img" aria-label="With Synestate a document goes straight from company to investor and is verified in seconds">
+<path d="M56 100 L464 100" style="fill: none; stroke: var(--settle); stroke-width: 4; stroke-linecap: round; opacity: 0.3"></path>
+<path class="flow" d="M56 100 L464 100" style="fill: none; stroke: var(--settle); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 2 22"></path>
+<circle cx="56" cy="100" r="14" style="fill: var(--inv); stroke: var(--inv-ink); stroke-width: 2"></circle>
+<circle cx="464" cy="100" r="14" style="fill: var(--inv); stroke: var(--inv-ink); stroke-width: 2"></circle>
+<circle cx="260" cy="100" r="36" style="fill: var(--settle)"></circle>
+<path d="M244 100l10 10 21-22" style="fill: none; stroke: #172338; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round"></path>
+<g text-anchor="middle" style="fill: var(--inv-ink); font-family: 'EB Garamond', serif; font-size: 19px"><text x="56" y="152">Company</text><text x="464" y="152">Investor</text><text x="260" y="184" style="font-weight: 700; fill: var(--settle)">Verified in seconds</text></g>
+</svg>
+<div style="color: var(--inv-ink-2)">Checked once. Trusted everywhere.</div>
+</div>
+</div>
 </section>
 
-<!-- DO -->
-<section class="sec" id="do">
-  <div class="wrap">
-    <span class="eyebrow rv">What we do</span>
-    <h2 class="h2big rv" style="font-size:clamp(1.6rem,3.6vw,2.2rem)">The infrastructure behind that trust.</h2>
-    <div class="do rv">
-      <div class="c"><h3>Identity &amp; trust</h3><p>Public key infrastructure, distributed ledgers, the LEI, verifiable credentials, and identity for the AI agents acting for you.</p></div>
-      <div class="c"><h3>Standards &amp; governance</h3><p>ISO 20022/17442, X.509, and W3C Verifiable Credentials, built to recognized standards from day one.</p></div>
-      <div class="c"><h3>Capital &amp; markets</h3><p>Payments, securities, trade finance, and FX: the rails that let verified entities settle.</p></div>
-      <div class="c"><h3>Research to venture</h3><p>From paper to prototype to product, so what you adopt has already been tested.</p></div>
-    </div>
-  </div>
+<!-- VENTURES -->
+<section id="ventures" style="position: relative; isolation: isolate; overflow: hidden; background: var(--bg-2); border-top: 3px double var(--outline); border-bottom: 3px double var(--outline); scroll-margin-top: 70px">
+<svg class="grat" viewBox="0 0 1200 1200" aria-hidden="true" focusable="false"><g style="fill: none; stroke: var(--ok); stroke-width: 1.2; opacity: 0.09"><circle cx="600" cy="600" r="560"></circle><ellipse cx="600" cy="600" rx="541" ry="560"></ellipse><ellipse cx="600" cy="600" rx="485" ry="560"></ellipse><ellipse cx="600" cy="600" rx="396" ry="560"></ellipse><ellipse cx="600" cy="600" rx="280" ry="560"></ellipse><ellipse cx="600" cy="600" rx="145" ry="560"></ellipse><path d="M600 40V1160"></path><ellipse cx="600" cy="600" rx="145" ry="560"></ellipse><ellipse cx="600" cy="600" rx="280" ry="560"></ellipse><ellipse cx="600" cy="600" rx="396" ry="560"></ellipse><ellipse cx="600" cy="600" rx="485" ry="560"></ellipse><ellipse cx="600" cy="600" rx="541" ry="560"></ellipse><path d="M455 1141H745"></path><path d="M320 1085H880"></path><path d="M204 996H996"></path><path d="M115 880H1085"></path><path d="M59 745H1141"></path><path d="M40 600H1160"></path><path d="M59 455H1141"></path><path d="M115 320H1085"></path><path d="M204 204H996"></path><path d="M320 115H880"></path><path d="M455 59H745"></path></g></svg>
+<div style="max-width: 1240px; margin: 0 auto; padding: clamp(72px, 10vw, 120px) 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 5.4vw, 60px); line-height: 1.02; font-weight: 700">One foundation. Many markets.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: var(--ink-2); max-width: 680px">A trusted ID for every company. Markets built on top, proven in simulation first.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+<a class="brand" href="https://ethmarketlab.com" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4.6vw, 52px); line-height: 1.1; font-weight: 700">ETH Market Lab ↗</a>
+<div style="font-size: 16px; color: var(--muted)">simulate → test with regulators → launch</div>
+</div>
+<div style="border-top: 1.5px dashed var(--outline); margin: 10px 4% 0"></div>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; padding: 18px 0 0">
+<div style="flex: 1 1 140px; height: 250px; background: var(--block-a); border-radius: 10px; padding: 18px 12px; box-sizing: border-box; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--block-ink)">Shares</div>
+<div style="flex: 1 1 140px; height: 280px; background: var(--block-b); border-radius: 10px; padding: 18px 12px; box-sizing: border-box; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--block-ink)">Funds</div>
+<div style="flex: 1 1 140px; height: 210px; background: var(--block-a); border-radius: 10px; padding: 18px 12px; box-sizing: border-box; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--block-ink)">Property</div>
+<div style="flex: 1 1 140px; height: 170px; background: var(--block-b); border-radius: 10px; padding: 18px 12px; box-sizing: border-box; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--block-ink)">Carbon</div>
+<div style="flex: 1 1 140px; height: 230px; background: var(--block-a); border-radius: 10px; padding: 18px 12px; box-sizing: border-box; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--block-ink)">Commodities</div>
+<a class="lk" href="mailto:root@synestate.com?subject=A%20new%20market" style="flex: 1 1 140px; height: 150px; border: 2px dashed var(--outline); border-radius: 10px; padding: 18px 12px; box-sizing: border-box; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--muted); text-decoration: none">Your market?</a>
+</div>
+<div style="background: var(--primary); color: #F3EDDF; border-radius: 16px; padding: 22px 24px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+<a class="brand onaccent" href="https://ethlei.com" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4.6vw, 52px); line-height: 1.1; font-weight: 700">ETHLEI ↗</a>
+<div style="font-size: 17px; opacity: 0.85">a global ID for every Ethiopian company</div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px">
+<a class="card" href="https://ethlei.com" style="text-decoration: none; background: var(--card); border-top: 5px solid var(--primary); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 6px; min-height: 172px; box-sizing: border-box"><span class="label" style="color: var(--hover)">The anchor</span><span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; line-height: 1.1; font-weight: 700">ETHLEI</span><span style="font-size: 16px; color: var(--ink-2)">Global company IDs. A proposed JV.</span><span class="go" style="margin-top: auto; font-size: 15px; font-weight: 600">ethlei.com ↗</span></a>
+<a class="card" href="https://ethmarketlab.com" style="text-decoration: none; background: var(--card); border-top: 5px solid var(--primary); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 6px; min-height: 172px; box-sizing: border-box"><span class="label" style="color: var(--hover)">The vehicle</span><span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; line-height: 1.1; font-weight: 700">ETH Market Lab</span><span style="font-size: 16px; color: var(--ink-2)">Builds and launches new markets.</span><span class="go" style="margin-top: auto; font-size: 15px; font-weight: 600">ethmarketlab.com ↗</span></a>
+<a class="card" href="https://ethtrusthub.com" style="text-decoration: none; background: var(--card); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 6px; min-height: 172px; box-sizing: border-box"><span class="label" style="color: var(--muted)">Neutral rails</span><span style="font-family: 'Cormorant Garamond', serif; font-size: 26px; line-height: 1.1; font-weight: 700">ETH Trust Hub</span><span style="font-size: 16px; color: var(--ink-2)">Neutral IDs and seals. Home of XAT, OrgId and OrgNet.</span><span class="go" style="margin-top: auto; font-size: 15px; font-weight: 600">ethtrusthub.com ↗</span></a>
+<a class="card" href="https://ethbusinessgroup.com" style="text-decoration: none; background: var(--card); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 6px; min-height: 172px; box-sizing: border-box"><span class="label" style="color: var(--muted)">Operator</span><span style="font-family: 'Cormorant Garamond', serif; font-size: 26px; line-height: 1.1; font-weight: 700">ETH Business Group</span><span style="font-size: 16px; color: var(--ink-2)">Runs ventures we co-build.</span><span class="go" style="margin-top: auto; font-size: 15px; font-weight: 600">ethbusinessgroup.com ↗</span></a>
+</div>
+</div>
 </section>
 
-<!-- WHY -->
-<section class="sec why" id="why">
-  <div class="wrap">
-    <span class="eyebrow rv">Why teams choose Synestate</span>
-    <h2 class="h2big rv" style="font-size:clamp(1.6rem,3.6vw,2.2rem);max-width:24ch">Depth you can rely on, delivery you can see.</h2>
-    <div class="pillars rv">
-      <div><h3>Open and built on standards</h3><p>We build with the standards community, so your infrastructure stays interoperable and recognized.</p></div>
-      <div><h3>Deep research</h3><p>Our work on organizational identity and trustworthy AI agents (<a href="https://eth.et" target="_blank" rel="noopener">eth.et</a>, <a href="https://ethlei.org" target="_blank" rel="noopener">ETHLEI</a>, <a href="https://tao.eth.et" target="_blank" rel="noopener">TAO</a>) keeps you ahead of where standards are heading.</p></div>
-      <div><h3>Proven delivery</h3><p>We operate <a href="https://ethbusinessgroup.com" target="_blank" rel="noopener">ETH Business Group</a>, built by our venture studio <a href="https://ethtrusthub.com" target="_blank" rel="noopener">ETH Trust Hub</a>: organizational identity, electronic sealing, and trade assurance.</p></div>
-    </div>
-    <div class="affil rv" aria-label="Standards and community affiliations">
-      <a href="https://www.lfdecentralizedtrust.org" target="_blank" rel="noopener">LF Decentralized Trust</a>
-      <a href="https://identity.foundation" target="_blank" rel="noopener">DIF</a>
-      <a href="https://pkic.org" target="_blank" rel="noopener">PKI Consortium</a>
-      <a href="https://trustoverip.org" target="_blank" rel="noopener">Trust Over IP</a>
-      <a href="https://cisi.org" target="_blank" rel="noopener">CISI</a>
-      <a href="https://acm.org" target="_blank" rel="noopener">ACM</a>
-      <a href="https://sigops.org" target="_blank" rel="noopener">SIGOPS</a>
-    </div>
-  </div>
+<!-- PROOF -->
+<section aria-labelledby="proofh" style="max-width: 1240px; margin: 0 auto; padding: clamp(72px, 10vw, 120px) 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 40px">
+<h2 id="proofh" class="sr">What works today</h2>
+<div style="display: flex; flex-direction: column; gap: 8px; border-top: 3px double var(--ink); padding-top: 22px">
+<div style="font-family: 'Cormorant Garamond', serif; font-size: 68px; font-weight: 700; line-height: 1; color: var(--ok)">Live</div>
+<div style="color: var(--ink-2)"><a class="lk" href="https://xat.et" style="color: var(--ink); font-weight: 700">XAT</a> holds company keys and records, aligned with EIMS.</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; border-top: 3px double var(--ink); padding-top: 22px">
+<div style="font-family: 'Cormorant Garamond', serif; font-size: 68px; font-weight: 700; line-height: 1">Simulate</div>
+<div style="color: var(--ink-2)">Banks, depository, exchange, regulators and investors in one simulation.</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; border-top: 3px double var(--ink); padding-top: 22px">
+<div style="font-family: 'Cormorant Garamond', serif; font-size: 68px; font-weight: 700; line-height: 1">Global</div>
+<div style="color: var(--ink-2)">Built on standards banks already use.</div>
+</div>
 </section>
 
-<!-- BAND -->
-<section class="sec band" id="contact">
-  <div class="bgfx" aria-hidden="true"></div>
-  <div class="wrap rv">
-    <span class="eyebrow">Let’s talk</span>
-    <h2 style="margin-top:12px">Tell us what you’re building.</h2>
-    <p class="lead" style="margin-top:16px">We will show you the path to trusted infrastructure that is ready for market, and where to start.</p>
-    <div class="cta">
-      <a class="btn btn-solid" href="mailto:root@synestate.com?subject=Inquiry">root@synestate.com</a>
-    </div>
-  </div>
+<!-- GO DEEPER -->
+<section id="research" style="background: var(--card); border-top: 3px double var(--outline); scroll-margin-top: 70px">
+<div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9vw, 96px) 24px; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4.4vw, 48px); line-height: 1.05; font-weight: 700">Go deeper</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px">
+<a class="card inv" href="https://ontrusting.com" style="text-decoration: none; background: var(--inv); color: var(--inv-ink); border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 12px; min-height: 210px; box-sizing: border-box">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--seal)"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0M12 18v3"></path></svg>
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; line-height: 1.1; font-weight: 700">On Trusting</span>
+<span style="font-size: 16px; color: var(--inv-ink-2)">Our podcast reflections.</span>
+<span class="go" style="margin-top: auto; font-size: 15px; font-weight: 600; color: var(--inv-hover)">ontrusting.com ↗</span>
+</a>
+<a class="card" href="https://eth.et" style="text-decoration: none; background: var(--bg); border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 12px; min-height: 210px; box-sizing: border-box">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18"></path></svg>
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; line-height: 1.1; font-weight: 700">eth.et</span>
+<span style="font-size: 16px; color: var(--ink-2)">Research on trust online.</span>
+<span class="go" style="margin-top: auto; font-size: 15px; font-weight: 600">eth.et ↗</span>
+</a>
+<a class="card" href="https://ethlei.org" style="text-decoration: none; background: var(--bg); border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 12px; min-height: 210px; box-sizing: border-box">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; line-height: 1.1; font-weight: 700">The ETHLEI Protocol</span>
+<span style="font-size: 16px; color: var(--ink-2)">Binds a company’s ID, certificate and records.</span>
+<span class="go" style="margin-top: auto; font-size: 15px; font-weight: 600">ethlei.org ↗</span>
+</a>
+<a class="card" href="https://tao.eth.et" style="text-decoration: none; background: var(--bg); border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 12px; min-height: 210px; box-sizing: border-box">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="3"></rect><path d="M12 8V4M9 13h.01M15 13h.01"></path></svg>
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 30px; line-height: 1.1; font-weight: 700">TAO</span>
+<span style="font-size: 16px; color: var(--ink-2)">Who stands behind an AI agent.</span>
+<span class="go" style="margin-top: auto; font-size: 15px; font-weight: 600">tao.eth.et ↗</span>
+</a>
+</div>
+<div style="font-size: 15px; color: var(--muted)">In sync with the standards community: <a class="lk" href="https://www.lfdecentralizedtrust.org">LF Decentralized Trust</a> · <a class="lk" href="https://identity.foundation">DIF</a> · <a class="lk" href="https://pkic.org">PKI Consortium</a> · <a class="lk" href="https://trustoverip.org">Trust Over IP</a></div>
+</div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <span>© Synestate, 2019 to 2026 · New York &amp; Addis Ababa</span>
-    <span class="social">
-      <a href="https://ethbusinessgroup.com" target="_blank" rel="noopener">Ventures</a>
-      <a href="https://ethtrusthub.com" target="_blank" rel="noopener">Studio</a>
-      <a href="https://eth.et" target="_blank" rel="noopener">Research</a>
-      <a href="https://naolduga.com" target="_blank" rel="noopener">Principal</a>
-      <a href="https://twitter.com/synestate" target="_blank" rel="noopener">X</a>
-      <a href="https://linkedin.com/in/synestate" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/synestate" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://bsky.app/profile/synestate.bsky.social" target="_blank" rel="noopener">Bluesky</a>
-    </span>
-  </div>
+<!-- CTA + FOOTER -->
+<section style="position: relative; isolation: isolate; overflow: hidden; background: var(--inv); color: var(--inv-ink)">
+<svg class="routes" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><g style="fill: none; stroke: var(--seal); stroke-width: 1.2; opacity: 0.18; stroke-dasharray: 3 7"><path d="M600 300 Q345 20 90 140"></path><path d="M600 300 Q405 -30 210 90"></path><path d="M600 300 Q465 60 330 180"></path><path d="M600 300 Q535 -50 470 70"></path><path d="M600 300 Q680 -30 760 90"></path><path d="M600 300 Q750 40 900 160"></path><path d="M600 300 Q825 -10 1050 110"></path><path d="M600 300 Q865 110 1130 230"></path><path d="M600 300 Q805 180 1010 380"></path><path d="M600 300 Q715 180 830 430"></path><path d="M600 300 Q510 180 420 420"></path><path d="M600 300 Q385 180 170 360"></path><path d="M600 300 Q330 140 60 260"></path><path d="M600 300 Q790 160 980 280"></path></g><g style="fill: var(--seal); opacity: 0.3"><circle cx="90" cy="140" r="4"></circle><circle cx="210" cy="90" r="4"></circle><circle cx="330" cy="180" r="4"></circle><circle cx="470" cy="70" r="4"></circle><circle cx="760" cy="90" r="4"></circle><circle cx="900" cy="160" r="4"></circle><circle cx="1050" cy="110" r="4"></circle><circle cx="1130" cy="230" r="4"></circle><circle cx="1010" cy="380" r="4"></circle><circle cx="830" cy="430" r="4"></circle><circle cx="420" cy="420" r="4"></circle><circle cx="170" cy="360" r="4"></circle><circle cx="60" cy="260" r="4"></circle><circle cx="980" cy="280" r="4"></circle><circle cx="600" cy="300" r="7"></circle></g></svg>
+<div style="max-width: 1240px; margin: 0 auto; padding: clamp(80px, 11vw, 128px) 24px 72px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px">
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 8vw, 92px); line-height: 0.98; font-weight: 700">Bring us a market.</h2>
+<p style="margin: 0; font-size: 21px; color: var(--inv-ink-2)">We’ll build it with you, in simulation first.</p>
+<a class="btn" href="mailto:root@synestate.com?subject=Inquiry" style="text-decoration: none; background: var(--accent); color: var(--on-accent); font-weight: 700; font-size: 18px; padding: 16px 30px; border-radius: 999px; min-height: 56px; box-sizing: border-box; display: inline-flex; align-items: center">root@synestate.com</a>
+</div>
+<footer style="max-width: 1240px; margin: 0 auto; padding: 44px 24px 40px; border-top: 3px double var(--inv-line); display: flex; flex-direction: column; gap: 32px; font-size: 15px; color: var(--inv-ink-2)">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px"><div class="label" style="color: var(--inv-muted)">Ventures</div><a class="lkd" href="https://ethlei.com">ETHLEI</a><a class="lkd" href="https://ethmarketlab.com">ETH Market Lab</a><a class="lkd" href="https://ethtrusthub.com">ETH Trust Hub</a><a class="lkd" href="https://ethbusinessgroup.com">ETH Business Group</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><div class="label" style="color: var(--inv-muted)">Products</div><a class="lkd" href="https://xat.et">XAT</a><a class="lkd" href="https://orgid.ethtrusthub.com">OrgId</a><a class="lkd" href="https://orgnet.ethtrusthub.com">OrgNet</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><div class="label" style="color: var(--inv-muted)">Research</div><a class="lkd" href="https://eth.et">eth.et</a><a class="lkd" href="https://ethlei.org">ETHLEI Protocol</a><a class="lkd" href="https://tao.eth.et">TAO</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><div class="label" style="color: var(--inv-muted)">Listen</div><a class="lkd" href="https://ontrusting.com">On Trusting</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><div class="label" style="color: var(--inv-muted)">Synestate</div><a class="lkd" href="https://naolduga.com">Principal</a><a class="lkd" href="mailto:root@synestate.com?subject=Inquiry">root@synestate.com</a></div>
+</div>
+<div style="padding-top: 18px; border-top: 1px solid var(--inv-line); color: var(--inv-muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px"><span>© 2019–2026 Synestate · Addis Ababa &amp; New York</span><span style="font-size: 13px">Regulated activities are carried out only by licensed partners.</span></div>
 </footer>
+</section>
 
+</div>
 <script>
-  // theme: honor system on load, allow toggle
-  const root=document.documentElement, tBtn=document.getElementById('themeBtn');
-  function setTheme(t){root.setAttribute('data-theme',t);tBtn.textContent=t==='dark'?'☀':'☾';}
-  setTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  tBtn.addEventListener('click',()=>setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark'));
-
-  // close Explore menu on outside click
-  const menu=document.querySelector('.menu');
-  if(menu){document.addEventListener('click',(e)=>{if(menu.open && !menu.contains(e.target)) menu.open=false;});}
-
-  // reveal on scroll
-  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
-  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+(function(){
+  var root=document.getElementById('root'),html=document.documentElement;
+  function set(dark){root.classList.toggle('t-dark',dark);root.classList.toggle('t-light',!dark);html.classList.toggle('t-dark',dark);html.classList.toggle('t-light',!dark);
+    var b=document.getElementById('themeBtn'),l=dark?'Switch to light mode':'Switch to dark mode';b.setAttribute('aria-label',l);b.title=l;
+    var m=document.querySelector('meta[name=theme-color]');}
+  var saved=null;try{saved=localStorage.getItem('syn-theme')}catch(e){}
+  set(saved?saved==='dark':true);
+  document.getElementById('themeBtn').addEventListener('click',function(){var d=!root.classList.contains('t-dark');set(d);try{localStorage.setItem('syn-theme',d?'dark':'light')}catch(e){}});
+  var mb=document.getElementById('menuBtn'),mm=document.getElementById('mobileMenu');
+  function menu(open){mm.hidden=!open;mb.setAttribute('aria-expanded',open?'true':'false')}
+  mb.addEventListener('click',function(){menu(mm.hidden)});
+  mm.querySelectorAll('[data-close]').forEach(function(a){a.addEventListener('click',function(){menu(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')menu(false)});
+})();
 </script>
 </body>
 </html>
